@@ -25,8 +25,6 @@ body {
 }
 
 
-
-
 /* Form styling */
 
 .form-styling {
@@ -47,5 +45,37 @@ body {
     font-size: large;
     padding: 15px 0px 15px 0px;
     display: inline-block;
+}
+
+#table-style {
+    width: 100%;
+}
+
+.num-width{
+    width: 30%;
+}
+
+.text-width{
+    width: 100%;
+}
+
+.label-width{
+    width: 36%;
+    
+}
+
+.date-format{
+    color: khaki;
+    padding-left: 10px;
+    position: relative;
+    top: 5px;
+    right: 8px;
+    
+}
+
+.date-format1{
+    color: honeydew;
+    padding-left: 5px;
+    padding-right: 5px;
     
 }

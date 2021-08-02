@@ -30,62 +30,65 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="URL" method="POST" target="_blank" class="form-styling">
-                    <table>
+                    <table id="table-style">
                         <p class="form-labels">Please enter and submit shift details: </p>
-                        <tr>
-                            <td><label class="form-labels" for="date-field">Report date:</label>
+                        <tr class="date-height">
+                            <td class="label-width"><label class="form-labels" for="date-field">Report date:</label>
                             </td>
-                            <td><input type="radio" id="date-field"
-                                    name="date-field" placeholder="Enter date" checked>Today</input>
-                                <input type="radio" id="date-field"
-                                    name="date-field" placeholder="Enter date">Yesterday</input>
-                                </tr>
+                            <td><input type="radio" id="date-field" name="date-field"
+                                    class="form-radio set-today date-format1" placeholder="Enter date" checked><span
+                                    class="date-format1">Today</span></input>
+                                <input type="radio" id="date-field" name="date-field"
+                                    class="form-radio set-yesterday date-format1" placeholder="Enter date"><span
+                                    class="date-format1">Yesterday</span></input>
+                                <br><span id="date-value" class="date-format"></span></td>
+                        </tr>
                         <tr>
                             <td><label class="form-labels" for="name-field">Employee name:</label></td>
-                            <td><input type="text" id="name-field" name="name-field"
+                            <td><input type="text" class="form-control text-width" id="name-field" name="name-field"
                                     placeholder="Enter name" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="id-field">Employee ID:</label></td>
-                            <td><input type="text" id="id-field" name="id-field"
+                            <td><input type="text" class="form-control text-width" id="id-field" name="id-field"
                                     placeholder="Enter employee ID" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="location-field">Job location:</label></td>
-                            <td><input type="text" id="location-field" name="location-field"
-                                    placeholder="Enter job location" required></td>
+                            <td><input type="text" class="form-control text-width" id="location-field"
+                                    name="location-field" placeholder="Enter job location" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="postcode-field">Job postcode:</label></td>
-                            <td><input type="text" id="postcode-field" name="postcode-field"
-                                    placeholder="Enter location postcode" required></td>
+                            <td><input type="text" class="form-control text-width" id="postcode-field"
+                                    name="postcode-field" placeholder="Enter location postcode" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="hours-field">Hours on job:</label></td>
-                            <td><input type="number" value="0" id="hours-field"
+                            <td><input type="number" value="0" class="form-control num-width" id="hours-field"
                                     name="hours-field" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="miles-field">Miles travelled:</label></td>
-                            <td><input type="number" value="0" id="miles-field"
+                            <td><input type="number" value="0" class="form-control num-width" id="miles-field"
                                     name="miles-field" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="number-field">Number of learners:</label></td>
-                            <td><input type="number" value="0" id="number-field"
+                            <td><input type="number" value="0" class="form-control num-width" id="number-field"
                                     name="number-field" required></td>
                         </tr>
 
                         <tr>
                             <td><label class="form-labels" for="type-field">Select job type:</label></td>
-                            <td><select id="type-field" name="type-field"
+                            <td><select class="form-control text-width" id="type-field" name="type-field"
                                     placeholder="Select job type" required>
                                 </select></td>
                         </tr>
                     </table>
 
                     <label class="form-labels" for="message-enquiry">Job details:</label>
-                    <textarea placeholder="Please enter details of the job" id="message-enquiry"
+                    <textarea placeholder="Please enter details of the job" class="form-control" id="message-enquiry"
                         name="message-enquiry" required rows="4"></textarea>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
