@@ -1,104 +1,130 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![The Training Company](/assets/readme-images/.PNG)
 
-Welcome USER_NAME,
+URL to the current deployed website:  [The Training Company](URL)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+# The Training Company
 
-## Gitpod Reminders
+This application is intended to capture field data for a national training company.   The application will serve as a means of capturing and submitting employee shift data at the end of their shift.   As employees will be completing these forms regularly, it needs to be intuitive and user friendly.  As there are a few different variables associated with different shifts, the form will need to behave dynamically and respond to user input in an interactive way to make the experience as seamless as possible. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The goal is to provide the employee managers with accurate and timely data at the end of each shift.  This will not only supply the company with useful HR information, but also information relating to the activities delivered by the company on a daily basis.
 
-`python3 -m http.server`
+----
 
-A blue button should appear to click: _Make Public_,
+# UX
+## Who is the audience?
 
-Another blue button should appear to click: _Open Browser_.
+The audience are employees of the company, in particular trainers, tutors, assessors.  At the end of each shift, employees are required to submit their shift data to their manager to record various details in relation to their shift (such as hours, miles travelled, nature of work activities and associated data).
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## The site owner
 
-A blue button should appear to click: _Make Public_,
+The owner seeks to obtain accurate and timely data relating to the activities of employees on a daily basis.  This data will be used to manage and monitor staff activity, HR purposes and also monitor the activities devlivered by the company.  
 
-Another blue button should appear to click: _Open Browser_.
+## Typical user stories to expect:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+1.  As a tutor I want to be able to quickly send my manager the details of today's one-to-one tutoring sessions I delivered with learners, along with shift hours and miles travelled for my mileage claim.
 
-To log into the Heroku toolbelt CLI:
+1.  As a trainer I want to be able to quickly send my manager details of the presentation I delivered to students today, along with shift hours and miles travelled for my mileage claim.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+1.  As an assessor I want to be able to quickly send details of learners assessed on a site visit today and for which qualifications, along with shift hours and miles travelled for my mileage claim. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+## The Strategy Plane
 
-## Release History
+This application needs to make the process of submitting data as easy and efficient as possible.  As a routine activity that staff will undertake it must be very easy to use, intuitive and interactive to the point that the form adapts dynamically based on user inputs to speed up the process, and also avoid presenting the user with any unrequired inputs.   The form will need to ensure that data is accurate and that sufficient data has been submitted to meet requirements.  
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Website user objectives:
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+* Document and submit HR data relating to shift (hours on job and miles travelled)
+* Document and submit details of work activities, details of learners seen and the nature of activties delivered 
+* Document and submit details of health and safety requirements
+* Document and submit any additional details relevant to the job undertaken
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Website owner objectives: 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* Provide employees with an efficient way to capture and submit information at the end of their shift
+* Receive accurate and timely information relating to employee work activity and company activities
+* Improve effectiveness of systems for capturing and recording information.
+* Improve employee productivity
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## The Scope Plane
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+These features are to be included as priorities:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+*	Navigation bar across the top with basic brand information
+*	Dynamic form that responds interactively to user inputs.  The form will contain the following features:
+    *	Date selector (selecting 'today' or 'yesterday', generates the associated date)
+    *	Text fields for employee name, employee ID, job location, job postcode
+    *	Number fields for hours on job, miles travelled, number of learners (form to dynamically generate text input fields for learner names, dependent on the number of learners)
+    *	Job type drop down selector (form to generate unique sections conditional on the job type)
+    *	Health and safety section to be rendered into the form upon radio button 'yes'
+    *	Section for supplying additional information relevant to the work activity
+*	Application to determine a productivity score based on hours on job, miles travelled and number of learners
+*	Form to submit form data to the site owner via Email API
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## The Structure Plane
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+The page will contain a standard navigation bar that will feature some basic brand information.  The page will provide instant access to the data capture form, which will feature prominently in the centre of the page.   The structure of the form will adhere to the data requirements outlined, with the form structure changing dynamically in response to user inputs.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## The Skeleton Plane
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Here are the initial wireframes produced for this project:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Landing page - desktop and tablets](URL)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+[Landing page - mobile](URL)
 
-------
 
-## FAQ about the uptime script
+## The Surface Plane 
 
-**Why have you added this script?**
+Here are some of the styling rules that has been defined to date: 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Fonts/typography
 
-**How will this affect me?**
+**Georama regular 400** from Google Fonts has been identified as suitable for form labels and headings throughout this project.   
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Colours
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+rgb(56, 69, 85) has been identified as a suitable base color for the theme
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Buttons
 
-**So….?**
+Generic bootstrap buttons have been deemed suitable, providing that the styling is overridden to complement the theme.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+----
 
-**Can I opt out?**
+# Features
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Existing Features
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## Features Left to Implement
 
-**Anything more?**
+----
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+# Technologies Used
 
----
 
-Happy coding!
+----
+
+# Testing
+
+## Testing against user stories:
+
+## Manual testing procedures
+
+## Other testing considerations/Known bugs
+
+----
+
+# Deployment
+
+
+----
+
+# Credits
+
+## Content
+
+## Media
+
+## Acknowledgements 
