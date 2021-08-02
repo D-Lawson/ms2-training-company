@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>THE TRAINING COMPANY - JOB SHEET</title>
 </head>
@@ -26,8 +26,73 @@
         </nav>
     </header>
 
-    <section>
+    <section id="contact" class="container-lg align-items-center">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="URL" method="POST" target="_blank" class="form-styling">
+                    <table>
+                        <p class="form-labels">Please enter and submit shift details: </p>
+                        <tr>
+                            <td><label class="form-labels" for="date-field">Report date:</label>
+                            </td>
+                            <td><input type="radio" id="date-field"
+                                    name="date-field" placeholder="Enter date" checked>Today</input>
+                                <input type="radio" id="date-field"
+                                    name="date-field" placeholder="Enter date">Yesterday</input>
+                                </tr>
+                        <tr>
+                            <td><label class="form-labels" for="name-field">Employee name:</label></td>
+                            <td><input type="text" id="name-field" name="name-field"
+                                    placeholder="Enter name" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="id-field">Employee ID:</label></td>
+                            <td><input type="text" id="id-field" name="id-field"
+                                    placeholder="Enter employee ID" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="location-field">Job location:</label></td>
+                            <td><input type="text" id="location-field" name="location-field"
+                                    placeholder="Enter job location" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="postcode-field">Job postcode:</label></td>
+                            <td><input type="text" id="postcode-field" name="postcode-field"
+                                    placeholder="Enter location postcode" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="hours-field">Hours on job:</label></td>
+                            <td><input type="number" value="0" id="hours-field"
+                                    name="hours-field" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="miles-field">Miles travelled:</label></td>
+                            <td><input type="number" value="0" id="miles-field"
+                                    name="miles-field" required></td>
+                        </tr>
+                        <tr>
+                            <td><label class="form-labels" for="number-field">Number of learners:</label></td>
+                            <td><input type="number" value="0" id="number-field"
+                                    name="number-field" required></td>
+                        </tr>
 
+                        <tr>
+                            <td><label class="form-labels" for="type-field">Select job type:</label></td>
+                            <td><select id="type-field" name="type-field"
+                                    placeholder="Select job type" required>
+                                </select></td>
+                        </tr>
+                    </table>
+
+                    <label class="form-labels" for="message-enquiry">Job details:</label>
+                    <textarea placeholder="Please enter details of the job" id="message-enquiry"
+                        name="message-enquiry" required rows="4"></textarea>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer>

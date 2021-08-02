@@ -8,6 +8,7 @@ body {
     line-height: 22px;
     background-color: #dde9f8;
     position: relative;
+    margin-top: 40px;
 }
 
 .nav-style {
@@ -26,3 +27,25 @@ body {
 
 
 
+/* Form styling */
+
+.form-styling {
+    position: relative;
+    left:19%;
+    margin: 5% 5% 10% 5%;
+    background-color: rgb(56, 69, 85);
+    padding: 35px 25px 35px 25px;
+    border-radius: .6rem;
+    width: 65%;
+    text-align: left;
+    margin: 20px 0 20px 0;
+}
+
+.form-labels {
+    font-family: 'Georama', sans-serif;
+    color:honeydew;
+    font-size: large;
+    padding: 15px 0px 15px 0px;
+    display: inline-block;
+    
+}
