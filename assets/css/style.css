@@ -46,6 +46,38 @@ body {
     display: inline-block;
 }
 
+.form-labels1 {
+    font-family: 'Georama', sans-serif;
+    color:honeydew;
+    font-size: large;
+    padding: 15px 0px 15px 0px;
+    display: inline-block;
+    width: 35%;
+}
+
+.type-div{
+    background-color: rgb(66, 66, 121);
+    border-radius: 10px;
+    border-color: lavender;
+    border-style:solid;
+    border-width: 0.5px;
+    padding-bottom: 5px;
+    padding-top:10px;
+}
+
+.form-labels1 {
+    font-family: 'Georama', sans-serif;
+    color:honeydew;
+    font-size: large;
+    padding: 15px 0px 15px 0px;
+    display: inline-block;
+    width: 35%;
+}
+
+.form-fields{
+    display: inline-block;
+}
+
 #table-style {
     width: 100%;
 }
@@ -56,6 +88,10 @@ body {
 
 .text-width{
     width: 100%;
+}
+
+.text-width1{
+    width: 36%;
 }
 
 .label-width{

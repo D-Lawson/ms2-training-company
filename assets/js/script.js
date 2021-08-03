@@ -67,8 +67,8 @@ $(document).ready(function () {
 
 // Render job type options
 
-const TRAINING_PRESENTATION = "training-presentation";
-const EXAMS_OR_TESTS = "exams-or-tests";
+const TRAINING_PRESENTATION = "Training presentation";
+const EXAMS_OR_TESTS = "Exams/tests";
 
 const typeFieldOptions = [
     { value: "", displayValue: "" },
@@ -87,3 +87,60 @@ function renderJobTypeOptions() {
     });
 }
 
+
+// trainingPresentation Function
+
+$(".type-div").hide();
+
+function trainingPresentation() {
+
+    var container = document.getElementById("container1");
+
+    // Clear contents
+    $(".removeType").remove();
+
+    $(".type-div").slideDown('medium');
+
+    container.innerHTML = `<label class="form-labels1 removeType" for="presentation-subject">Presentation subject:</label>
+    <input type="text" class="form-control text-width1 form-fields removeType" id="presentation-subject" name="presentation-subject"
+        placeholder="Enter name" required>`;
+
+}
+
+// Exams/tests Function
+
+function examsTests() {
+
+    var container = document.getElementById("container1");
+
+    // Clear contents
+    $(".removeType").remove();
+
+    $(".type-div").slideDown('medium');
+
+    container.innerHTML = `<label class="form-labels1 removeType" for="presentation-subject">Exam/test subject:</label>
+    <input type="text" class="form-control text-width1 form-fields removeType" id="presentation-subject" name="presentation-subject"
+        placeholder="Enter name" required>`;
+
+}
+
+// Type/select Function
+
+function typeSelect() {
+
+    console.log("hello");
+
+    var typeValue = document.getElementById("type-field").value;
+
+    console.log(typeValue)
+
+    if (typeValue === TRAINING_PRESENTATION) {
+        console.log("training");
+        trainingPresentation();
+    } else if (typeValue === EXAMS_OR_TESTS) {
+        console.log("exams");
+        examsTests();
+    } else {
+        $(".type-div").hide();
+    }
+}
