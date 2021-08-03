@@ -43,7 +43,8 @@ Website owner objectives:
 
 * Provide employees with an efficient way to capture and submit information at the end of their shift
 * Receive accurate and timely information relating to employee work activity and company activities
-* Improve effectiveness of systems for capturing and recording information.
+* Collect mileage information for expenses claims
+* Improve effectiveness of systems for capturing and recording information
 * Improve employee productivity
 
 

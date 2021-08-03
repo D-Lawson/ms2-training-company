@@ -61,4 +61,29 @@ $(document).ready(function () {
     $.fn.myFunction = function () {
         addFields1();
     };
+
+    renderJobTypeOptions();
 });
+
+// Render job type options
+
+const TRAINING_PRESENTATION = "training-presentation";
+const EXAMS_OR_TESTS = "exams-or-tests";
+
+const typeFieldOptions = [
+    { value: "", displayValue: "" },
+    { value: TRAINING_PRESENTATION, displayValue: "Training presentation" },
+    { value: EXAMS_OR_TESTS, displayValue: "Exams/tests" },
+    { value: "one-to-one", displayValue: "One-to-one" },
+];
+
+function renderJobTypeOptions() {
+    const select = document.getElementById("type-field");
+
+    typeFieldOptions.forEach((option) => {
+        let optionElement = document.createElement('option');
+        optionElement.innerHTML = option.displayValue;
+        select.appendChild(optionElement);
+    });
+}
+
