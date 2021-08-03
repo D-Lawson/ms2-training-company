@@ -92,11 +92,18 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="container1" class="form-group type-div"></div>
+                            <label class="form-labels1 extra-margin" for="hs-field">Health and safety vetted?</label>
+                            <input type="radio" class="form-radio" id="hs-field" name="hs-field"
+                                placeholder="Enter date" checked><span
+                                class="date-format1">No</span></input>
+                            <input type="radio" class="form-radio" id="hs-field" name="hs-field"
+                                placeholder="Enter date"><span
+                                class="date-format1">Yes</span></input><br>
                         </div>
                     </div>
 
-                    <label class="form-labels" for="message-enquiry">Job details:</label>
-                    <textarea placeholder="Please enter details of the job" class="form-control" id="message-enquiry"
+                    <label class="form-labels" for="message-enquiry">Additional job details:</label>
+                    <textarea placeholder="Please enter any additional details in relation to the job" class="form-control" id="message-enquiry"
                         name="message-enquiry" required rows="4"></textarea>
 
                     <button type="submit" class="btn btn-primary submit-style">Submit</button>

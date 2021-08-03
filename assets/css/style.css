@@ -73,15 +73,12 @@ body {
     margin-top: 15px;
 }
 
-
+.extra-margin{
+    margin-right: 37px;
+}
 
 .type-padding{
     padding-left: 10%;
-}
-
-
-.form-fields{
-    
 }
 
 #table-style {
