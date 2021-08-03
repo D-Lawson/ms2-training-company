@@ -132,9 +132,23 @@ function examsTests() {
 
     $(".type-div").slideDown('medium');
 
-    container.innerHTML = `<label class="form-labels1 removeType" for="presentation-subject">Exam/test subject:</label>
-    <input type="text" class="form-control text-width1 form-fields removeType" id="presentation-subject" name="presentation-subject"
-        placeholder="Enter name" required>`;
+    container.innerHTML = `<div class="row">
+    <div class="col-sm-4"><img alt="Presentation icon"
+            src="assets/images/exam.png" class="img-fluid img-style"></div>
+    <div class="col-sm-8 type-padding justify-content-center">
+        <label class="form-labels1 removeType" for="presentation-subject">Exam
+            subject:</label>
+        <input type="text"
+            class="form-control text-width1 align-items-center form-fields"
+            id="presentation-subject" name="presentation-subject"
+            placeholder="Enter subject" required>
+        <label class="form-labels1 removeType" for="presentation-subject">Resource ref:</label>
+        <input type="text"
+            class="form-control text-width1 align-items-center form-fields"
+            id="presentation-subject" name="presentation-subject"
+            placeholder="Enter resource reference" required>
+    </div>
+</div>`;
 
 }
 
