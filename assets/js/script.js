@@ -211,3 +211,27 @@ function clearHS() {
     $(".removeType1").remove();
 
 }
+
+
+function valid_postcode(postcode) {
+    postcode = postcode.replace(/\s/g, "");
+    var regex = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
+    return regex.test(postcode);
+}
+
+
+// Validate postcode
+
+function postcode() {
+
+    var postcode_value = document.getElementById("postcode-field").value;
+
+    var validated_postcode = valid_postcode(postcode_value);
+
+    if (validated_postcode === true) {
+        
+        console.log("true postcode");
+    }  else {
+        console.log("false postcode");
+    }
+}
