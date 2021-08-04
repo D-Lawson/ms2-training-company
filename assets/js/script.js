@@ -103,7 +103,7 @@ function trainingPresentation() {
 
     container.innerHTML = `<div class="row">
     <div class="col-sm-4"><img alt="Presentation icon"
-            src="assets/images/presentation.png" class="img-fluid img-style"></div>
+            src="assets/images/presentation.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
         <label class="form-labels1 removeType" for="presentation-subject">Presentation
             subject:</label>
@@ -134,7 +134,7 @@ function examsTests() {
 
     container.innerHTML = `<div class="row">
     <div class="col-sm-4"><img alt="Presentation icon"
-            src="assets/images/exam.png" class="img-fluid img-style"></div>
+            src="assets/images/exam.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
         <label class="form-labels1 removeType" for="presentation-subject">Exam
             subject:</label>
