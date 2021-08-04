@@ -46,7 +46,7 @@ function addFields1() {
 
         // Inner HTML for learner name
         cell1.innerHTML = `<label class="form-labels remove" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
-        cell2.innerHTML = `<input type="text" class="form-control remove" id="learner-name-${[i+1]}" name="learner-name-${[i+1]}"
+        cell2.innerHTML = `<input type="text" class="form-control text-width2 remove" id="learner-name-${[i+1]}" name="learner-name-${[i+1]}"
         placeholder="Enter name" required>`;
     }
 }
@@ -171,4 +171,43 @@ function typeSelect() {
     } else {
         $(".type-div").hide();
     }
+}
+
+// Health and safety Function
+
+$(".health-safety-div").hide();
+
+function healthSafety() {
+
+    var container = document.getElementById("container2");
+
+    // Clear contents
+    $(".removeType1").remove();
+
+    $(".health-safety-div").slideDown('medium');
+
+    container.innerHTML = `<div class="row removeType1">
+    <div class="col-sm-4"><img alt="Presentation icon" src="assets/images/safety.png"
+            class="img-fluid img-style1 d-none d-sm-block"></div>
+    <div class="col-sm-8 hs-padding justify-content-center">
+        <label class="form-labels1" for="presentation-subject">Vetting document
+            ref:</label>
+        <input type="text"
+            class="form-control text-width3 align-items-center form-fields"
+            id="presentation-subject" name="presentation-subject"
+            placeholder="Enter vetting document reference" required>
+        <label class="form-labels1" for="presentation-subject">ELI renewal date:</label>
+        <input type="text"
+            class="form-control text-width3 align-items-center form-fields"
+            id="presentation-subject" name="presentation-subject"
+            placeholder="Enter ELI renewal date" required>
+    </div>
+</div>`;
+
+}
+
+function clearHS() {
+
+    $(".removeType1").remove();
+
 }
