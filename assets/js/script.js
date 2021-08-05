@@ -52,6 +52,9 @@ function addFields1() {
 }
 
 function sendMail(contactForm) {
+
+
+    
     emailjs.send("service_jrlcm3l", "template_pfvzimj", {
         "label_one": $('#name-field').val(),
         "presentation-subject": $('#presentation-subject').val(),
@@ -253,3 +256,6 @@ function postcode() {
         console.log("false postcode");
     }
 }
+
+
+

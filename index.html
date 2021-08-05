@@ -37,7 +37,7 @@
             <div class="col-12">
                 <form id="user-form" class="form-styling" onsubmit="return sendMail(this);">
                     <div class="text-center">
-                        <p class="form-labels2">PLEASE COMPLETE EACH SECTION ACCURATELY AND FULLY</p>
+                        <h2 class="form-labels2">PLEASE COMPLETE EACH SECTION ACCURATELY AND FULLY</h2>
                     </div>
                     <table id="table-style">
                         <tr class="date-height">
@@ -46,11 +46,11 @@
                             </td>
                             <td>
                                 <input type="radio" id="date-field" name="date-field"
-                                    class="form-radio set-today date-format1" placeholder="Enter date" checked><span
-                                    class="date-format1">Today</span></input>
+                                    class="form-radio set-today date-format1" checked><span
+                                    class="date-format1">Today</span>
                                 <input type="radio" id="date-field" name="date-field"
-                                    class="form-radio set-yesterday date-format1" placeholder="Enter date"><span
-                                    class="date-format1">Yesterday</span></input>
+                                    class="form-radio set-yesterday date-format1"><span
+                                    class="date-format1">Yesterday</span>
                                 <br><span id="date-value" class="date-format"></span>
                             </td>
                         </tr>
@@ -60,14 +60,14 @@
                             </td>
                             <td>
                                 <input type="text" class="form-control text-width" id="name-field" name="name-field"
-                                    placeholder="Enter name" required /></input>
+                                    placeholder="Enter name" required />
                             </td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="id-field">Employee ID:</label></td>
                             <td>
                                 <input type="text" class="form-control text-width" id="id-field" name="id-field"
-                                    placeholder="Enter employee ID" required></input>
+                                    placeholder="Enter employee ID" required>
                             </td>
                         </tr>
                         <tr>
@@ -76,12 +76,12 @@
                             </td>
                             <td>
                                 <input type="text" class="form-control text-width" id="location-field"
-                                    name="location-field" placeholder="Enter job location" required></input>
+                                    name="location-field" placeholder="Enter job location" required>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label class="form-labels" for="postcode-field">Job postcode:</label>
+                                <label class="form-labels post-popover" for="postcode-field">Job postcode:</label>
                             </td>
                             <td>
                                 <input type="text" onchange="postcode()" class="form-control text-width"
@@ -108,7 +108,7 @@
                         <tr>
                             <td><label class="form-labels" for="type-field">Select job type:</label></td>
                             <td><select onchange="typeSelect()" class="form-control text-width" id="type-field"
-                                    name="type-field" placeholder="Select job type" required>
+                                    name="type-field" required>
                                 </select></td>
                         </tr>
                     </table>
@@ -118,10 +118,10 @@
                             <div id="container1" class="form-group type-div"></div>
                             <label class="form-labels1 extra-margin" for="hs-field">Health and safety vetted?</label>
                             <input type="radio" class="form-radio" onchange="clearHS()" id="hs-field" name="hs-field"
-                                placeholder="Enter date" checked><span class="date-format1">No</span></input>
+                                 checked><span class="date-format1">No</span>
                             <input type="radio" class="form-radio" onchange="healthSafety()" id="hs-field"
-                                name="hs-field" placeholder="Enter date"><span
-                                class="date-format1">Yes</span></input><br>
+                                name="hs-field"><span
+                                class="date-format1">Yes</span><br>
 
                             <div id="container2" class="form-group health-safety-div">
                             </div>
@@ -131,15 +131,26 @@
                     <label class="form-labels" for="additional-info">Additional job details:</label>
                     <textarea placeholder="Please enter any additional details in relation to the job"
                         class="form-control" id="additional-info" name="additional-info" required rows="4"></textarea>
-
-                    <button type="submit" class="btn btn-primary submit-style">Submit</button>
+                    <div class="submit-div text-center">
+                    <button type="submit" class="btn btn-primary submit-style ">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="mt-20 text-black-50">
-        <p>Placeholder footer text</p>
+    <footer class="page-footer d-flex justify-content-center">
+        <div id="footer-style" class="row">
+            <div class="col-6 container-fluid footer-left">
+                <h5 class="footer-text">The Training Company</h5>
+                <p class="footer-text1">Official field data submission form</p>
+                
+            </div>
+            <div class="col-6 container-fluid text-right footer-right">
+                <h5 class="footer-text">Any problems, please report to:</h5>
+                <p class="footer-text2"><a href="mailto:tech.support@TTC.com.org">tech.support@TTC.com.org</a></p>
+            </div>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
