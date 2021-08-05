@@ -51,6 +51,23 @@ function addFields1() {
     }
 }
 
+function sendMail(contactForm) {
+    emailjs.send("service_jrlcm3l", "template_pfvzimj", {
+        "label_one": $('#name-field').val(),
+        "presentation-subject": $('#presentation-subject').val(),
+
+    })
+    .then(
+        function (response) {
+            console.log("SUCCESS", response)
+        },
+        function (error) {
+            console.log("FAILED", error)
+        });
+
+        return false;
+    }
+
 // Document ready with jquery, call learner name function
 
 $(document).ready(function () {
@@ -63,6 +80,7 @@ $(document).ready(function () {
     };
 
     renderJobTypeOptions();
+
 });
 
 // Render job type options
@@ -111,10 +129,10 @@ function trainingPresentation() {
             class="form-control text-width1 align-items-center form-fields"
             id="presentation-subject" name="presentation-subject"
             placeholder="Enter subject" required>
-        <label class="form-labels1 removeType" for="presentation-subject">Resource ref:</label>
+        <label class="form-labels1 removeType" for="resource-ref">Resource ref:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="resource-ref" name="resource-ref"
             placeholder="Enter resource reference" required>
     </div>
 </div>`;
@@ -136,16 +154,16 @@ function examsTests() {
     <div class="col-sm-4"><img alt="Presentation icon"
             src="assets/images/exam.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
-        <label class="form-labels1 removeType" for="presentation-subject">Exam
+        <label class="form-labels1 removeType" for="exam-subject">Exam
             subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="exam-subject" name="exam-subject"
             placeholder="Enter subject" required>
-        <label class="form-labels1 removeType" for="presentation-subject">Resource ref:</label>
+        <label class="form-labels1 removeType" for="test-resource">Resource ref:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="test-resource" name="test-resource"
             placeholder="Enter resource reference" required>
     </div>
 </div>`;
@@ -213,14 +231,14 @@ function clearHS() {
 }
 
 
-function valid_postcode(postcode) {
-    postcode = postcode.replace(/\s/g, "");
-    var regex = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
-    return regex.test(postcode);
-}
-
 
 // Validate postcode
+
+function valid_postcode(postcode) {
+    postcode = postcode.replace(/\s/g, "");
+    var regex = /^[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}$/i;
+    return regex.test(postcode);
+}
 
 function postcode() {
 

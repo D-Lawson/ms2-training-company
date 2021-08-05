@@ -10,8 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_5ywkyvjIawxGTS63jjHDE");
+        })();
+    </script>
     <title>THE TRAINING COMPANY - JOB SHEET</title>
 </head>
 
@@ -29,41 +35,59 @@
     <section class="container align-items-center">
         <div class="row">
             <div class="col-12">
-                <form action="URL" method="POST" target="_blank" class="form-styling">
+                <form id="user-form" class="form-styling" onsubmit="return sendMail(this);">
+                    <div class="text-center">
+                        <p class="form-labels2">PLEASE COMPLETE EACH SECTION ACCURATELY AND FULLY</p>
+                    </div>
                     <table id="table-style">
-                        <div class="text-center">
-                            <p class="form-labels2">PLEASE COMPLETE EACH SECTION ACCURATELY AND FULLY</p>
-                        </div>
                         <tr class="date-height">
-                            <td class="label-width"><label class="form-labels" for="date-field">Report date:</label>
+                            <td class="label-width">
+                                <label class="form-labels" for="date-field">Report date:</label>
                             </td>
-                            <td><input type="radio" id="date-field" name="date-field"
+                            <td>
+                                <input type="radio" id="date-field" name="date-field"
                                     class="form-radio set-today date-format1" placeholder="Enter date" checked><span
                                     class="date-format1">Today</span></input>
                                 <input type="radio" id="date-field" name="date-field"
                                     class="form-radio set-yesterday date-format1" placeholder="Enter date"><span
                                     class="date-format1">Yesterday</span></input>
-                                <br><span id="date-value" class="date-format"></span></td>
+                                <br><span id="date-value" class="date-format"></span>
+                            </td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels" for="name-field">Employee name:</label></td>
-                            <td><input type="text" class="form-control text-width" id="name-field" name="name-field"
-                                    placeholder="Enter name" required></td>
+                            <td>
+                                <label class="form-labels" for="name-field">Employee name:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-width" id="name-field" name="name-field"
+                                    placeholder="Enter name" required /></input>
+                            </td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="id-field">Employee ID:</label></td>
-                            <td><input type="text" class="form-control text-width" id="id-field" name="id-field"
-                                    placeholder="Enter employee ID" required></td>
+                            <td>
+                                <input type="text" class="form-control text-width" id="id-field" name="id-field"
+                                    placeholder="Enter employee ID" required></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels" for="location-field">Job location:</label></td>
-                            <td><input type="text" class="form-control text-width" id="location-field"
-                                    name="location-field" placeholder="Enter job location" required></td>
+                            <td>
+                                <label class="form-labels" for="location-field">Job location:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-width" id="location-field"
+                                    name="location-field" placeholder="Enter job location" required></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels" for="postcode-field">Job postcode:</label></td>
-                            <td><input type="text" onchange="postcode()" class="form-control text-width" id="postcode-field"
-                                    name="postcode-field" placeholder="Enter location postcode" required></td>
+                            <td>
+                                <label class="form-labels" for="postcode-field">Job postcode:</label>
+                            </td>
+                            <td>
+                                <input type="text" onchange="postcode()" class="form-control text-width"
+                                    id="postcode-field" name="postcode-field" placeholder="Enter location postcode"
+                                    required>
+                            </td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="hours-field">Hours on job:</label></td>
@@ -95,29 +119,31 @@
                             <label class="form-labels1 extra-margin" for="hs-field">Health and safety vetted?</label>
                             <input type="radio" class="form-radio" onchange="clearHS()" id="hs-field" name="hs-field"
                                 placeholder="Enter date" checked><span class="date-format1">No</span></input>
-                            <input type="radio" class="form-radio" onchange="healthSafety()" id="hs-field" name="hs-field"
-                                placeholder="Enter date"><span class="date-format1">Yes</span></input><br>
+                            <input type="radio" class="form-radio" onchange="healthSafety()" id="hs-field"
+                                name="hs-field" placeholder="Enter date"><span
+                                class="date-format1">Yes</span></input><br>
 
                             <div id="container2" class="form-group health-safety-div">
-                                
                             </div>
-
                         </div>
                     </div>
 
-                    <label class="form-labels" for="message-enquiry">Additional job details:</label>
+                    <label class="form-labels" for="additional-info">Additional job details:</label>
                     <textarea placeholder="Please enter any additional details in relation to the job"
-                        class="form-control" id="message-enquiry" name="message-enquiry" required rows="4"></textarea>
+                        class="form-control" id="additional-info" name="additional-info" required rows="4"></textarea>
 
                     <button type="submit" class="btn btn-primary submit-style">Submit</button>
-
                 </form>
             </div>
         </div>
     </section>
 
+    <footer class="mt-20 text-black-50">
+        <p>Placeholder footer text</p>
+    </footer>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
