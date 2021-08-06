@@ -46,18 +46,20 @@ function addFields1() {
 
         // Inner HTML for learner name
         cell1.innerHTML = `<label class="form-labels remove" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
-        cell2.innerHTML = `<input type="text" class="form-control text-width2 remove" id="learner-name-${[i+1]}" name="learner-name-${[i+1]}"
-        placeholder="Enter name" required>`;
+        cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name[]"
+        placeholder="Enter name" required pattern="[a-zA-Z0-9]{5,25}">`;
     }
 }
 
 function sendMail(contactForm) {
 
-
+    collectNames()
     
     emailjs.send("service_jrlcm3l", "template_pfvzimj", {
-        "label_one": $('#name-field').val(),
-        "presentation-subject": $('#presentation-subject').val(),
+        "employee_name": contactForm.nameField.value,
+        "presentation_subject": contactForm.presentationSubject.value,
+        "learner_names": namesArray,
+
 
     })
     .then(
@@ -92,7 +94,6 @@ const TRAINING_PRESENTATION = "Training presentation";
 const EXAMS_OR_TESTS = "Exams/tests";
 
 const typeFieldOptions = [
-    { value: "", displayValue: "" },
     { value: TRAINING_PRESENTATION, displayValue: "Training presentation" },
     { value: EXAMS_OR_TESTS, displayValue: "Exams/tests" },
     { value: "one-to-one", displayValue: "One-to-one" },
@@ -126,11 +127,11 @@ function trainingPresentation() {
     <div class="col-sm-4"><img alt="Presentation icon"
             src="assets/images/presentation.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
-        <label class="form-labels1 removeType" for="presentation-subject">Presentation
+        <label class="form-labels1 removeType" for="presentationSubject">Presentation
             subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="presentationSubject" name="presentation_subject"
             placeholder="Enter subject" required>
         <label class="form-labels1 removeType" for="resource-ref">Resource ref:</label>
         <input type="text"
@@ -233,8 +234,6 @@ function clearHS() {
 
 }
 
-
-
 // Validate postcode
 
 function valid_postcode(postcode) {
@@ -257,5 +256,22 @@ function postcode() {
     }
 }
 
+// Collect names and store in array function
 
+var namesArray = []
 
+function collectNames() {
+
+    var number = document.getElementById("number-field").value;
+
+    for (i = 0; i < number; i++) {
+
+        var idGenerator = `#learner-name-${[i+1]}`;
+
+        var multipleValues = $(idGenerator).val() || [];
+
+        namesArray.push(multipleValues);
+  }
+  namesArray.join();
+  console.log(namesArray);
+}
