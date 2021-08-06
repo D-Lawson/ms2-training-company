@@ -39,6 +39,7 @@
                     <div class="text-center">
                         <h2 class="form-labels2">PLEASE COMPLETE EACH SECTION ACCURATELY AND FULLY</h2>
                     </div>
+                    <span id="productivityRating" class="text-center"></span>
                     <table id="table-style">
                         <tr class="date-height">
                             <td class="label-width">
@@ -90,18 +91,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels" for="hours-field">Hours on job:</label></td>
-                            <td><input type="number" value="0" class="form-control num-width" id="hours-field"
-                                    name="hours-field" required></td>
+                            <td><label class="form-labels" for="hoursField">Hours on job:</label></td>
+                            <td><input type="number" onchange="calculateRating(); addRating()" value="0" class="form-control num-width" id="hoursField"
+                                    name="hours_field" required></td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels" for="miles-field">Miles travelled:</label></td>
-                            <td><input type="number" value="0" class="form-control num-width" id="miles-field"
-                                    name="miles-field" required></td>
+                            <td class="label-width"><label class="form-labels" for="milesField">Miles travelled:</label></td>
+                            <td><input type="number" onchange="calculateRating(); addRating()" value="0" class="form-control num-width" id="milesField"
+                                    name="milesField" required></td>
                         </tr>
                         <tr>
                             <td><label class="form-labels" for="number-field">Number of learners:</label></td>
-                            <td><input type="number" value="0" class="form-control num-width" id="number-field"
+                            <td><input type="number" onchange="calculateRating(); addRating()" value="0" class="form-control num-width" id="number-field"
                                     name="number-field" required></td>
                         </tr>
 

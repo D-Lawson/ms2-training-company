@@ -272,3 +272,20 @@ option {
 a {
     color: #2da87d;
 }
+
+#productivityRating{
+    padding: 3px;
+    color:#35bdbd;
+    position: absolute;
+    left: 400px;
+    top: 460px;
+    background-color: rgb(33 46 78);
+    border-radius: 10px;
+    border-color: #f2f2d657;
+    border-style: solid;
+    border-width: 0.5px;
+    
+
+
+}
+    

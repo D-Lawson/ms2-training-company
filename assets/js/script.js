@@ -84,6 +84,7 @@ $(document).ready(function () {
         addFields1();
     };
 
+    $("#productivityRating").hide();
     renderJobTypeOptions();
 
 });
@@ -274,4 +275,62 @@ function collectNames() {
   }
   namesArray.join();
   console.log(namesArray);
+}
+
+// Calculate productivity score
+
+var productivityRating = "";
+
+function calculateRating() {
+
+var hoursOnJob = document.getElementById("hoursField").value;
+var milesTravelled = document.getElementById("milesField").value;
+var number = document.getElementById("number-field").value;
+var hoursScore = 0;
+var milesScore = 0;
+var numberScore = number * 10;
+
+if (hoursOnJob === 0) {  
+    hoursScore = 0;
+}  else {
+    hoursScore = 80 / hoursOnJob;
+}
+
+if (milesTravelled < 10) {  
+    milesScore = 50;
+}  else {
+    milesScore = 500 / milesTravelled;
+}
+
+var productivityScore = hoursScore + milesScore + numberScore;
+if (productivityScore > 90) { 
+    productivityRating = "High";
+
+}  else if (productivityScore > 65){
+    productivityRating = "Medium";
+} else {
+    productivityRating = "Low"
+}
+console.log(productivityRating);
+console.log(productivityScore);
+}
+
+function addRating() {
+
+    $("#productivityRating").hide();
+
+    var hoursOnJob = document.getElementById("hoursField").value;
+    var milesTravelled = document.getElementById("milesField").value;
+    var number = document.getElementById("number-field").value;
+    var ratingSpan = document.getElementById("productivityRating");
+    
+    if (hoursOnJob > 0 && milesTravelled > 0 && number > 0) {
+        
+        
+        ratingSpan.innerHTML = `Productivity rating: <br> ${productivityRating}`;
+        $("#productivityRating").show();
+    }  else {
+        $("#productivityRating").hide();
+    }
+
 }
