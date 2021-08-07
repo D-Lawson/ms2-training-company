@@ -33,13 +33,19 @@ body {
 /* Form styling */
 
 .form-styling {
+    display: inline-block;
     position: relative;
     background: linear-gradient(-153deg, rgba(35, 47, 73, 0.95), rgba(7, 21, 53, 0.95) 70%), #000b24;
-    padding: 35px 25px 35px 25px;
+    padding: 35px 25px 35px 32px;
     border-radius: .6rem;
     width: 56%;
     left: 22%;
     right: 22%;
+}
+
+.form-div{
+    height: 1000px;
+
 }
 
 @media (max-width: 992px) {
@@ -285,7 +291,14 @@ a {
     border-style: solid;
     border-width: 0.5px;
     
+}
 
-
+.rings-style{
+    display: block;
+    height: 960px;
+    position: relative;
+    bottom: 973px;
+    left: 224px;
+    
 }
     
