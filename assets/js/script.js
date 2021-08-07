@@ -47,7 +47,7 @@ function addFields1() {
         // Inner HTML for learner name
         cell1.innerHTML = `<label class="form-labels remove" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
         cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name[]"
-        placeholder="Enter name" required pattern="[a-zA-Z0-9]{5,25}">`;
+        placeholder="Enter name" required pattern="[a-zA-Z0-9]{2,25}">`;
     }
 }
 
@@ -220,7 +220,7 @@ function healthSafety() {
             id="presentation-subject" name="presentation-subject"
             placeholder="Enter vetting document reference" required>
         <label class="form-labels1" for="presentation-subject">ELI renewal date:</label>
-        <input type="text"
+        <input type="date"
             class="form-control text-width3 align-items-center form-fields"
             id="presentation-subject" name="presentation-subject"
             placeholder="Enter ELI renewal date" required>
@@ -334,3 +334,4 @@ function addRating() {
     }
 
 }
+
