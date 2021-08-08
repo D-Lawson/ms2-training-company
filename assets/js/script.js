@@ -1,6 +1,6 @@
 // Get and format the date
 
-var dateValue = document.getElementById('date-value');
+var dateValue = document.getElementById('dateValue');
 
 var todayDate = new Date(Date.now());
 
@@ -21,18 +21,18 @@ dateValue.innerHTML = todayDate;
 // date change function
 
 $(".set-today").on("click", function () {
-    $('#date-value').html(todayDate);
+    $('#dateValue').html(todayDate);
 });
 
 $(".set-yesterday").on("click", function () {
-    $('#date-value').html(yesterdayDate);
+    $('#dateValue').html(yesterdayDate);
 });
 
 // Learner name function
 
 function addFields1() {
     // Get number value
-    var number = document.getElementById("number-field").value;
+    var number = document.getElementById("numberField").value;
     // Clear contents
     $("#table-style .remove").parents("tr").remove();
     // Add table rows to enter learner names
@@ -47,37 +47,114 @@ function addFields1() {
         // Inner HTML for learner name
         cell1.innerHTML = `<label class="form-labels remove reduce-size" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
         cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name[]"
-        placeholder="Enter name" required pattern="[a-zA-Z0-9]{2,25}">`;
+        placeholder="Enter name" required>`;
     }
 }
 
 function sendMail(contactForm) {
 
     collectNames()
-    
-    emailjs.send("service_jrlcm3l", "template_pfvzimj", {
-        "employee_name": contactForm.nameField.value,
-        "presentation_subject": contactForm.presentationSubject.value,
-        "learner_names": namesArray,
 
+    var typeValue = document.getElementById("typeField").value;
+    var hsValue = document.getElementById("hsField_1").checked;
+    var presentationSubjectMail = {};
+    var presentationResourceMail = {};
+    var examSubjectMail = {};
+    var examResourceMail = {};
+    var oneSubjectMail = {};
+    var assessmentTypeMail = {};
+    var vettingMail = {};
+    var eliMail = {};
 
-    })
-    .then(
-        function (response) {
-            console.log("SUCCESS", response)
-        },
-        function (error) {
-            console.log("FAILED", error)
-        });
-
-        return false;
+    if (typeValue === TRAINING_PRESENTATION) {
+        presentationSubjectMail = contactForm.presentationSubject.value;
+    } else {
+        presentationSubjectMail = "";
     }
+
+    if (typeValue === TRAINING_PRESENTATION) {
+        presentationResourceMail = contactForm.presentationResource.value;
+    } else {
+        presentationResourceMail = "";
+    }
+
+    if (typeValue === EXAMS_OR_TESTS) {
+        examSubjectMail = contactForm.examSubject.value;
+    } else {
+        examSubjectMail = "";
+    }
+
+    if (typeValue === EXAMS_OR_TESTS) {
+        examResourceMail = contactForm.examResource.value;
+    } else {
+        examResourceMail = "";
+    }
+
+    if (typeValue === ONE_TO_ONE) {
+        oneSubjectMail = contactForm.sessionSubject.value;
+    } else {
+        oneSubjectMail = "";
+    }
+
+    if (typeValue === ONE_TO_ONE) {
+        assessmentTypeMail = contactForm.assessmentType.value;
+    } else {
+        assessmentTypeMail = "";
+    }
+
+    if (hsValue === true) {
+        vettingMail = contactForm.vettingReference.value;
+    } else {
+        vettingMail = "";
+    }
+
+    if (hsValue === true) {
+        eliMail = contactForm.eliRenewal.value;
+    } else {
+        eliMail = "";
+    }
+
+    emailjs.send("service_jrlcm3l", "template_pfvzimj", {
+            "report_date": document.getElementById("dateValue").innerHTML,
+            "employee_name": contactForm.nameField.value,
+            "employee_id": contactForm.idField.value,
+            "job_location": contactForm.locationField.value,
+            "job_postcode": contactForm.postcodeField.value,
+            "hours": contactForm.hoursField.value,
+            "miles": contactForm.milesField.value,
+            "number_of_learners": contactForm.numberField.value,
+            "learner_names": namesArray,
+            "job_type": contactForm.typeField.value,
+            "presentation_subject": presentationSubjectMail,
+            "presentation_resource": presentationResourceMail,
+            "exam_subject": examSubjectMail,
+            "exam_resource": examResourceMail,
+            "one_to_one_subject": oneSubjectMail,
+            "assessment_type": assessmentTypeMail,
+            "vetting_reference": vettingMail,
+            "eli_renewal": eliMail,
+            "job_details": contactForm.additionalInfo.value,
+            "productivity": document.getElementById("prodMail").innerHTML,
+        })
+
+        .then(
+            function (response) {
+                console.log("SUCCESS", response)
+            },
+            function (error) {
+                console.log("FAILED", error)
+            });
+
+            location.reload();
+
+    return false;
+}
 
 // Document ready with jquery, call learner name function
 
 $(document).ready(function () {
 
-    $("#number-field").change(function () {
+    $("#numberField").change(function () {
         $.fn.myFunction();
     });
     $.fn.myFunction = function () {
@@ -95,14 +172,22 @@ const TRAINING_PRESENTATION = "Training presentation";
 const EXAMS_OR_TESTS = "Exams/tests";
 const ONE_TO_ONE = "One-to-one";
 
-const typeFieldOptions = [
-    { value: TRAINING_PRESENTATION, displayValue: "Training presentation" },
-    { value: EXAMS_OR_TESTS, displayValue: "Exams/tests" },
-    { value: ONE_TO_ONE, displayValue: "One-to-one" },
+const typeFieldOptions = [{
+        value: TRAINING_PRESENTATION,
+        displayValue: "Training presentation"
+    },
+    {
+        value: EXAMS_OR_TESTS,
+        displayValue: "Exams/tests"
+    },
+    {
+        value: ONE_TO_ONE,
+        displayValue: "One-to-one"
+    },
 ];
 
 function renderJobTypeOptions() {
-    const select = document.getElementById("type-field");
+    const select = document.getElementById("typeField");
 
     typeFieldOptions.forEach((option) => {
         let optionElement = document.createElement('option');
@@ -133,12 +218,12 @@ function trainingPresentation() {
             subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="presentationSubject" name="presentation_subject"
+            id="presentationSubject" name="presentationSubject"
             placeholder="Enter subject" required>
-        <label class="form-labels1 removeType" for="resource-ref">Resource ref:</label>
+        <label class="form-labels1 removeType" for="presentationResource">Resource ref:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="resource-ref" name="resource-ref"
+            id="presentationResource" name="presentationResource"
             placeholder="Enter resource reference" required>
     </div>
 </div>`;
@@ -160,16 +245,16 @@ function examsTests() {
     <div class="col-sm-4"><img alt="Exam icon"
             src="assets/images/exam.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
-        <label class="form-labels1 removeType" for="exam-subject">Exam/test
+        <label class="form-labels1 removeType" for="examSubject">Exam/test
             subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="exam-subject" name="exam-subject"
+            id="examSubject" name="examSubject"
             placeholder="Enter subject" required>
-        <label class="form-labels1 removeType" for="test-resource">Resource ref:</label>
+        <label class="form-labels1 removeType" for="examResource">Resource ref:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="test-resource" name="test-resource"
+            id="examResource" name="examResource"
             placeholder="Enter resource reference" required>
     </div>
 </div>`;
@@ -191,15 +276,15 @@ function oneToOne() {
     <div class="col-sm-4"><img alt="One-to-one icon"
             src="assets/images/one-on-one-icon.png" class="img-fluid img-style2 d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
-        <label class="form-labels1 removeType" for="session-subject">Activity subject:</label>
+        <label class="form-labels1 removeType" for="sessionSubject">Activity subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="session-subject" name="session-subject"
+            id="sessionSubject" name="sessionSubject"
             placeholder="Enter activity subject" required>
-        <label class="form-labels1 removeType" for="assessment-type">Assessment type:</label>
+        <label class="form-labels1 removeType" for="assessmentType">Assessment type:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
-            id="assessment-type" name="assessment-type"
+            id="assessmentType" name="assessmentType"
             placeholder="Enter assessment type" required>
     </div>
 </div>`;
@@ -210,7 +295,7 @@ function oneToOne() {
 
 function typeSelect() {
 
-    var typeValue = document.getElementById("type-field").value;
+    var typeValue = document.getElementById("typeField").value;
 
     if (typeValue === TRAINING_PRESENTATION) {
         trainingPresentation();
@@ -240,16 +325,16 @@ function healthSafety() {
     <div class="col-sm-4"><img alt="Presentation icon" src="assets/images/safety.png"
             class="img-fluid img-style1 d-none d-sm-block"></div>
     <div class="col-sm-8 hs-padding justify-content-center">
-        <label class="form-labels1" for="presentation-subject">Vetting document
+        <label class="form-labels1" for="vettingReference">Vetting document
             ref:</label>
         <input type="text"
             class="form-control text-width3 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="vettingReference" name="vettingReference"
             placeholder="Enter vetting document reference" required>
-        <label class="form-labels1" for="presentation-subject">ELI renewal date:</label>
+        <label class="form-labels1" for="eliRenewal">ELI renewal date:</label>
         <input type="date"
             class="form-control text-width3 align-items-center form-fields"
-            id="presentation-subject" name="presentation-subject"
+            id="eliRenewal" name="eliRenewal"
             placeholder="Enter ELI renewal date" required>
     </div>
 </div>`;
@@ -272,14 +357,14 @@ function valid_postcode(postcode) {
 
 function postcode() {
 
-    var postcode_value = document.getElementById("postcode-field").value;
+    var postcode_value = document.getElementById("postcodeField").value;
 
     var validated_postcode = valid_postcode(postcode_value);
 
     if (validated_postcode === true) {
-        
+
         console.log("true postcode");
-    }  else {
+    } else {
         console.log("false postcode");
     }
 }
@@ -290,7 +375,7 @@ var namesArray = []
 
 function collectNames() {
 
-    var number = document.getElementById("number-field").value;
+    var number = document.getElementById("numberField").value;
 
     for (i = 0; i < number; i++) {
 
@@ -299,9 +384,9 @@ function collectNames() {
         var multipleValues = $(idGenerator).val() || [];
 
         namesArray.push(multipleValues);
-  }
-  namesArray.join();
-  console.log(namesArray);
+    }
+    namesArray.join(', ');
+    console.log(namesArray);
 }
 
 // Calculate productivity score
@@ -310,36 +395,33 @@ var productivityRating = "";
 
 function calculateRating() {
 
-var hoursOnJob = document.getElementById("hoursField").value;
-var milesTravelled = document.getElementById("milesField").value;
-var number = document.getElementById("number-field").value;
-var hoursScore = 0;
-var milesScore = 0;
-var numberScore = number * 10;
+    var hoursOnJob = document.getElementById("hoursField").value;
+    var milesTravelled = document.getElementById("milesField").value;
+    var number = document.getElementById("numberField").value;
+    var hoursScore = 0;
+    var milesScore = 0;
+    var numberScore = number * 10;
 
-if (hoursOnJob === 0) {  
-    hoursScore = 0;
-}  else {
-    hoursScore = 80 / hoursOnJob;
-}
+    if (hoursOnJob === 0) {
+        hoursScore = 0;
+    } else {
+        hoursScore = 80 / hoursOnJob;
+    }
 
-if (milesTravelled < 10) {  
-    milesScore = 50;
-}  else {
-    milesScore = 500 / milesTravelled;
-}
+    if (milesTravelled < 10) {
+        milesScore = 50;
+    } else {
+        milesScore = 500 / milesTravelled;
+    }
+    var productivityScore = hoursScore + milesScore + numberScore;
+    if (productivityScore > 90) {
+        productivityRating = "High";
+    } else if (productivityScore > 65) {
+        productivityRating = "Medium";
+    } else {
+        productivityRating = "Low"
+    }
 
-var productivityScore = hoursScore + milesScore + numberScore;
-if (productivityScore > 90) { 
-    productivityRating = "High";
-
-}  else if (productivityScore > 65){
-    productivityRating = "Medium";
-} else {
-    productivityRating = "Low"
-}
-console.log(productivityRating);
-console.log(productivityScore);
 }
 
 function addRating() {
@@ -348,17 +430,15 @@ function addRating() {
 
     var hoursOnJob = document.getElementById("hoursField").value;
     var milesTravelled = document.getElementById("milesField").value;
-    var number = document.getElementById("number-field").value;
+    var number = document.getElementById("numberField").value;
     var ratingSpan = document.getElementById("productivityRating");
-    
+
     if (hoursOnJob > 0 && milesTravelled > 0 && number > 0) {
-        
-        
-        ratingSpan.innerHTML = `Productivity rating: <br> ${productivityRating}`;
+
+        ratingSpan.innerHTML = `Productivity rating: <br> <span id="prodMail">${productivityRating}</span>`;
         $("#productivityRating").show();
-    }  else {
+    } else {
         $("#productivityRating").hide();
     }
 
 }
-

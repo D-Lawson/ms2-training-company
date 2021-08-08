@@ -92,8 +92,8 @@ body {
 @media (max-width: 440px) {
     .form-styling {
         width: 98%;
-        left: 1%;
-        right: 1%;
+        left: 0%;
+        right: 0%;
         padding: 35px 5px 40px 5px;
     }
 }
@@ -294,7 +294,17 @@ td {
     border-color: #e5c8c6;
     border-radius: 2rem;
     font-weight: 600;
-    font-family: "Segoe UI";
+    font-family: "Georama";
+    margin-top: 20px;
+}
+
+.submit-style:hover {
+    color: #eeeeee;
+    background-color: #571d81;
+    border-color: #e5c8c6;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-family: "Georama";
     margin-top: 20px;
 }
 
@@ -493,5 +503,9 @@ a {
     }
 }
 
-
-  
+@media (max-width: 440px) {
+    .form-div{
+        padding-left: 10px;
+        padding-right: 4px;
+}
+}

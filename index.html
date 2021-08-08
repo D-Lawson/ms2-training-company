@@ -53,7 +53,7 @@
                                 <input type="radio" id="date_field1" name="date_field"
                                     class="form-radio set-yesterday date-format1"><span
                                     class="date-format1 reduce-size">Yesterday</span>
-                                <br><span id="date-value" class="date-format reduce-size"></span>
+                                <br><span id="dateValue" class="date-format reduce-size"></span>
                             </td>
                         </tr>
                         <tr>
@@ -61,33 +61,33 @@
                                 <label class="form-labels reduce-size" for="nameField">Employee name:</label>
                             </td>
                             <td>
-                                <input type="text" class="form-control text-width" id="nameField" name="name_field"
+                                <input type="text" class="form-control text-width" id="nameField" name="nameField"
                                     placeholder="Enter name" required />
                             </td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels reduce-size" for="id-field">Employee ID:</label></td>
+                            <td><label class="form-labels reduce-size" for="idField">Employee ID:</label></td>
                             <td>
-                                <input type="text" class="form-control text-width" id="id-field" name="id-field"
+                                <input type="text" class="form-control text-width" id="idField" name="idField"
                                     placeholder="Enter employee ID" required>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label class="form-labels reduce-size" for="location-field">Job location:</label>
+                                <label class="form-labels reduce-size" for="locationField">Job location:</label>
                             </td>
                             <td>
-                                <input type="text" class="form-control text-width" id="location-field"
-                                    name="location-field" placeholder="Enter job location" required>
+                                <input type="text" class="form-control text-width" id="locationField"
+                                    name="locationField" placeholder="Enter job location" required>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label class="form-labels reduce-size" for="postcode-field">Job postcode:</label>
+                                <label class="form-labels reduce-size" for="postcodeField">Job postcode:</label>
                             </td>
                             <td>
                                 <input type="text" onchange="postcode()" class="form-control text-width"
-                                    id="postcode-field" name="postcode-field" placeholder="Enter location postcode"
+                                    id="postcodeField" name="postcodeField" placeholder="Enter location postcode"
                                     required
                                     pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}">
                             </td>
@@ -95,7 +95,7 @@
                         <tr>
                             <td><label class="form-labels reduce-size" for="hoursField">Hours on job:</label></td>
                             <td><input type="number" onchange="calculateRating(); addRating()" value=""
-                                    class="form-control num-width" id="hoursField" name="hours_field" required></td>
+                                    class="form-control num-width" id="hoursField" name="hoursField" required></td>
                         </tr>
                         <tr>
                             <td class="label-width"><label class="form-labels reduce-size" for="milesField">Miles travelled:</label>
@@ -104,15 +104,15 @@
                                     class="form-control num-width" id="milesField" name="milesField" required></td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels reduce-size x-small" for="number-field">Number of learners:</label></td>
+                            <td><label class="form-labels reduce-size x-small" for="numberField">Number of learners:</label></td>
                             <td><input type="number" onchange="calculateRating(); addRating()" value=""
-                                    class="form-control num-width" id="number-field" name="number-field" required></td>
+                                    class="form-control num-width" id="numberField" name="numberField" required></td>
                         </tr>
 
                         <tr>
-                            <td><label class="form-labels reduce-size" for="type-field">Select job type:</label></td>
-                            <td><select onchange="typeSelect()" class="form-control text-width reduce-size" id="type-field"
-                                    name="type-field" required>
+                            <td><label class="form-labels reduce-size" for="typeField">Select job type:</label></td>
+                            <td><select onchange="typeSelect()" class="form-control text-width reduce-size" id="typeField"
+                                    name="typeField" required>
                                     <option label="..."></option>
                                 </select></td>
                         </tr>
@@ -121,20 +121,20 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="container1" class="form-group type-div"></div>
-                            <label class="form-labels1 extra-margin reduce-size" for="hs_field">Health and safety vetted?</label>
-                            <input type="radio" class="form-radio" onchange="clearHS()" id="hs_field" name="hs_field"
+                            <label class="form-labels1 extra-margin reduce-size" for="hsField">Health and safety vetted?</label>
+                            <input type="radio" class="form-radio" onchange="clearHS()" id="hsField" name="hsField"
                                 checked><span class="date-format1 reduce-size">No</span>
-                            <input type="radio" class="form-radio" onchange="healthSafety()" id="hs_field1"
-                                name="hs_field"><span class="date-format1 reduce-size">Yes</span><br>
+                            <input type="radio" class="form-radio" onchange="healthSafety()" id="hsField_1"
+                                name="hsField"><span class="date-format1 reduce-size">Yes</span><br>
 
                             <div id="container2" class="form-group health-safety-div">
                             </div>
                         </div>
                     </div>
 
-                    <label class="form-labels1 extra-pad reduce-size" for="additional-info">Additional job details:</label>
+                    <label class="form-labels1 extra-pad reduce-size" for="additionalInfo">Additional job details:</label>
                     <textarea placeholder="Please enter any additional details in relation to the job"
-                        class="form-control extra-margin1" id="additional-info" name="additional-info" rows="4"></textarea>
+                        class="form-control extra-margin1" id="additionalInfo" name="additionalInfo" rows="4"></textarea>
                     <div class="submit-div text-center">
                         <button type="submit" class="btn btn-primary submit-style">Submit</button>
                     </div>
