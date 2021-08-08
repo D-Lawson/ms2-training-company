@@ -98,21 +98,23 @@
                                     class="form-control num-width" id="hoursField" name="hoursField" required></td>
                         </tr>
                         <tr>
-                            <td class="label-width"><label class="form-labels reduce-size" for="milesField">Miles travelled:</label>
+                            <td class="label-width"><label class="form-labels reduce-size" for="milesField">Miles
+                                    travelled:</label>
                             </td>
                             <td><input type="number" onchange="calculateRating(); addRating()" value=""
                                     class="form-control num-width" id="milesField" name="milesField" required></td>
                         </tr>
                         <tr>
-                            <td><label class="form-labels reduce-size x-small" for="numberField">Number of learners:</label></td>
+                            <td><label class="form-labels reduce-size x-small" for="numberField">Number of
+                                    learners:</label></td>
                             <td><input type="number" onchange="calculateRating(); addRating()" value=""
                                     class="form-control num-width" id="numberField" name="numberField" required></td>
                         </tr>
 
                         <tr>
                             <td><label class="form-labels reduce-size" for="typeField">Select job type:</label></td>
-                            <td><select onchange="typeSelect()" class="form-control text-width reduce-size" id="typeField"
-                                    name="typeField" required>
+                            <td><select onchange="typeSelect()" class="form-control text-width reduce-size"
+                                    id="typeField" name="typeField" required>
                                     <option label="..."></option>
                                 </select></td>
                         </tr>
@@ -121,7 +123,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="container1" class="form-group type-div"></div>
-                            <label class="form-labels1 extra-margin reduce-size" for="hsField">Health and safety vetted?</label>
+                            <label class="form-labels1 extra-margin reduce-size" for="hsField">Health and safety
+                                vetted?</label>
                             <input type="radio" class="form-radio" onchange="clearHS()" id="hsField" name="hsField"
                                 checked><span class="date-format1 reduce-size">No</span>
                             <input type="radio" class="form-radio" onchange="healthSafety()" id="hsField_1"
@@ -132,9 +135,11 @@
                         </div>
                     </div>
 
-                    <label class="form-labels1 extra-pad reduce-size" for="additionalInfo">Additional job details:</label>
+                    <label class="form-labels1 extra-pad reduce-size" for="additionalInfo">Additional job
+                        details:</label>
                     <textarea placeholder="Please enter any additional details in relation to the job"
-                        class="form-control extra-margin1" id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+                        class="form-control extra-margin1" id="additionalInfo" name="additionalInfo"
+                        rows="4"></textarea>
                     <div class="submit-div text-center">
                         <button type="submit" class="btn btn-primary submit-style">Submit</button>
                     </div>
@@ -156,10 +161,26 @@
             </div>
             <div class="col-6 container-fluid text-right footer-right">
                 <h5 class="footer-text reduce-size">Any problems, please report to:</h5>
-                <p class="footer-text2 footer-reduce"><a href="mailto:tech.support@TTC.com.org">tech.support@TTC.com.org</a></p>
+                <p class="footer-text2 footer-reduce"><a
+                        href="mailto:tech.support@TTC.com.org">tech.support@TTC.com.org</a></p>
             </div>
         </div>
     </footer>
+
+    <!--Form submit modal-->
+
+    <div id="modalSubmit" class="modal" tabindex="-1">
+        <div class="modal-content modal-style modal-size">
+
+            <div class="modal-padding">
+                <h1 class="modal-text"> Thank you, your report has been received.<br><br>Please contact the centre administator if you wish to correct or update any of the data supplied.</h1>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary submit-style1" onclick="modalRefresh()" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"

@@ -298,6 +298,15 @@ td {
     margin-top: 20px;
 }
 
+.submit-style1 {
+    color: #eeeeee;
+    background-color: #280a3d;
+    border-color: #e5c8c6;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-family: "Georama";
+}
+
 .submit-style:hover {
     color: #eeeeee;
     background-color: #571d81;
@@ -306,6 +315,15 @@ td {
     font-weight: 600;
     font-family: "Georama";
     margin-top: 20px;
+}
+
+.submit-style1:hover {
+    color: #eeeeee;
+    background-color: #571d81;
+    border-color: #e5c8c6;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-family: "Georama";
 }
 
 .submit-div {
@@ -508,4 +526,31 @@ a {
         padding-left: 10px;
         padding-right: 4px;
 }
+}
+
+.modal-size {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+}
+
+.modal-padding {
+    margin: 30px;
+}
+
+.modal-text {
+    font-family: 'Georama', sans-serif;
+    color: rgb(214, 195, 127);
+    font-size: 1rem;
+    padding-bottom: 10px;
+}
+
+.modal-style{
+    background-color: #8b261d;
+}
+
+.modal-footer{
+    padding: 0px 3px 5px 0px;
 }

@@ -145,8 +145,14 @@ function sendMail(contactForm) {
                 console.log("FAILED", error)
             });
 
-            location.reload();
+    $('#modalSubmit').modal('show');
 
+    return false;
+}
+
+function modalRefresh() {
+
+    location.reload();
     return false;
 }
 
