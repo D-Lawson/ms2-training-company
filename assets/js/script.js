@@ -45,7 +45,7 @@ function addFields1() {
         var cell2 = row.insertCell(1);
 
         // Inner HTML for learner name
-        cell1.innerHTML = `<label class="form-labels remove" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
+        cell1.innerHTML = `<label class="form-labels remove reduce-size" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
         cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name[]"
         placeholder="Enter name" required pattern="[a-zA-Z0-9]{2,25}">`;
     }
@@ -93,11 +93,12 @@ $(document).ready(function () {
 
 const TRAINING_PRESENTATION = "Training presentation";
 const EXAMS_OR_TESTS = "Exams/tests";
+const ONE_TO_ONE = "One-to-one";
 
 const typeFieldOptions = [
     { value: TRAINING_PRESENTATION, displayValue: "Training presentation" },
     { value: EXAMS_OR_TESTS, displayValue: "Exams/tests" },
-    { value: "one-to-one", displayValue: "One-to-one" },
+    { value: ONE_TO_ONE, displayValue: "One-to-one" },
 ];
 
 function renderJobTypeOptions() {
@@ -156,10 +157,10 @@ function examsTests() {
     $(".type-div").slideDown('medium');
 
     container.innerHTML = `<div class="row">
-    <div class="col-sm-4"><img alt="Presentation icon"
+    <div class="col-sm-4"><img alt="Exam icon"
             src="assets/images/exam.png" class="img-fluid img-style d-none d-sm-block"></div>
     <div class="col-sm-8 type-padding justify-content-center">
-        <label class="form-labels1 removeType" for="exam-subject">Exam
+        <label class="form-labels1 removeType" for="exam-subject">Exam/test
             subject:</label>
         <input type="text"
             class="form-control text-width1 align-items-center form-fields"
@@ -175,22 +176,48 @@ function examsTests() {
 
 }
 
+// One-to-one Function
+
+function oneToOne() {
+
+    var container = document.getElementById("container1");
+
+    // Clear contents
+    $(".removeType").remove();
+
+    $(".type-div").slideDown('medium');
+
+    container.innerHTML = `<div class="row">
+    <div class="col-sm-4"><img alt="One-to-one icon"
+            src="assets/images/one-on-one-icon.png" class="img-fluid img-style2 d-none d-sm-block"></div>
+    <div class="col-sm-8 type-padding justify-content-center">
+        <label class="form-labels1 removeType" for="session-subject">Activity subject:</label>
+        <input type="text"
+            class="form-control text-width1 align-items-center form-fields"
+            id="session-subject" name="session-subject"
+            placeholder="Enter activity subject" required>
+        <label class="form-labels1 removeType" for="assessment-type">Assessment type:</label>
+        <input type="text"
+            class="form-control text-width1 align-items-center form-fields"
+            id="assessment-type" name="assessment-type"
+            placeholder="Enter assessment type" required>
+    </div>
+</div>`;
+
+}
+
 // Type/select Function
 
 function typeSelect() {
 
-    console.log("hello");
-
     var typeValue = document.getElementById("type-field").value;
 
-    console.log(typeValue)
-
     if (typeValue === TRAINING_PRESENTATION) {
-        console.log("training");
         trainingPresentation();
     } else if (typeValue === EXAMS_OR_TESTS) {
-        console.log("exams");
         examsTests();
+    } else if (typeValue === ONE_TO_ONE) {
+        oneToOne();
     } else {
         $(".type-div").hide();
     }
