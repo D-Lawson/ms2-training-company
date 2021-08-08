@@ -37,7 +37,6 @@ function addFields1() {
     $("#table-style .remove").parents("tr").remove();
     // Add table rows to enter learner names
     for (i = 0; i < number; i++) {
-
         var table = document.getElementById("table-style");
         var row = table.insertRow(8 + i);
         row.className = 'cell-1';
@@ -51,9 +50,13 @@ function addFields1() {
     }
 }
 
+// Compile and submit data to emailjs API
+
 function sendMail(contactForm) {
 
-    collectNames()
+    collectNames();
+
+    // Assign empty strings to unrendered elements to suit EmailJS API
 
     var typeValue = document.getElementById("typeField").value;
     var hsValue = document.getElementById("hsField_1").checked;
@@ -114,6 +117,8 @@ function sendMail(contactForm) {
         eliMail = "";
     }
 
+    // Assign values to EmailJS properties and send
+
     emailjs.send("service_jrlcm3l", "template_pfvzimj", {
             "report_date": document.getElementById("dateValue").innerHTML,
             "employee_name": contactForm.nameField.value,
@@ -139,10 +144,10 @@ function sendMail(contactForm) {
 
         .then(
             function (response) {
-                console.log("SUCCESS", response)
+                console.log("SUCCESS", response);
             },
             function (error) {
-                console.log("FAILED", error)
+                console.log("FAILED", error);
             });
 
     $('#modalSubmit').modal('show');
@@ -156,7 +161,7 @@ function modalRefresh() {
     return false;
 }
 
-// Document ready with jquery, call learner name function
+// Document ready with jquery, initial call of functions
 
 $(document).ready(function () {
 
@@ -168,6 +173,7 @@ $(document).ready(function () {
     };
 
     $("#productivityRating").hide();
+
     renderJobTypeOptions();
 
 });
@@ -202,8 +208,7 @@ function renderJobTypeOptions() {
     });
 }
 
-
-// trainingPresentation Function
+// trainingPresentation Function to render HTML
 
 $(".type-div").hide();
 
@@ -233,10 +238,9 @@ function trainingPresentation() {
             placeholder="Enter resource reference" required>
     </div>
 </div>`;
-
 }
 
-// Exams/tests Function
+// Exams/tests Function to render HTML
 
 function examsTests() {
 
@@ -267,7 +271,7 @@ function examsTests() {
 
 }
 
-// One-to-one Function
+// One-to-one Function to render HTML
 
 function oneToOne() {
 
@@ -314,7 +318,7 @@ function typeSelect() {
     }
 }
 
-// Health and safety Function
+// Health and safety Function to render HTML
 
 $(".health-safety-div").hide();
 
@@ -350,34 +354,11 @@ function healthSafety() {
 function clearHS() {
 
     $(".removeType1").remove();
-
-}
-
-// Validate postcode
-
-function valid_postcode(postcode) {
-    postcode = postcode.replace(/\s/g, "");
-    var regex = /^[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}$/i;
-    return regex.test(postcode);
-}
-
-function postcode() {
-
-    var postcode_value = document.getElementById("postcodeField").value;
-
-    var validated_postcode = valid_postcode(postcode_value);
-
-    if (validated_postcode === true) {
-
-        console.log("true postcode");
-    } else {
-        console.log("false postcode");
-    }
 }
 
 // Collect names and store in array function
 
-var namesArray = []
+var namesArray = [];
 
 function collectNames() {
 
@@ -395,7 +376,7 @@ function collectNames() {
     console.log(namesArray);
 }
 
-// Calculate productivity score
+// Calculate productivity score and convert to rating
 
 var productivityRating = "";
 
@@ -425,10 +406,11 @@ function calculateRating() {
     } else if (productivityScore > 65) {
         productivityRating = "Medium";
     } else {
-        productivityRating = "Low"
+        productivityRating = "Low";
     }
-
 }
+
+// Render rating to HTML
 
 function addRating() {
 
@@ -446,5 +428,4 @@ function addRating() {
     } else {
         $("#productivityRating").hide();
     }
-
 }

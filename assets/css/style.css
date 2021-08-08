@@ -14,6 +14,8 @@ body {
     display: none;
 }
 
+/*  ********************** NAV ********************** */
+
 .nav-style {
     background-color: #8b261d;
     padding-top: 15px;
@@ -39,7 +41,7 @@ body {
     }
 }
 
-
+/*  ********************** FOOTER ********************** */
 
 .footer-style {
     position: absolute;
@@ -48,7 +50,7 @@ body {
     left: 0;
 }
 
-/* Form styling */
+/*  ********************** FORM STYLING ********************** */
 
 .form-styling {
     position: relative;
@@ -59,7 +61,6 @@ body {
     left: 22%;
     right: 22%;
 }
-
 
 @media (max-width: 992px) {
     .form-styling {
@@ -89,7 +90,7 @@ body {
     }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 480px) {
     .form-styling {
         width: 98%;
         left: 0%;
@@ -97,7 +98,6 @@ body {
         padding: 35px 5px 40px 5px;
     }
 }
-
 
 .form-labels {
     font-family: 'Georama', sans-serif;
@@ -131,12 +131,26 @@ body {
     font-family: 'Georama', sans-serif;
     color: #e4c385;
     font-size: large;
-    padding: 15px 0px 25px 0px;
+    padding: 5px 0px 25px 0px;
     display: inline-block;
 }
 
 @media (max-width: 480px) {
     .form-labels2 {
+        font-size:medium;
+    }
+}
+
+.form-labels3 {
+    font-family: 'Georama', sans-serif;
+    color: #ffffff !important;
+    font-size: 1.4rem;
+    padding: 13px 0px 25px 0px;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .form-labels3 {
         font-size:medium;
     }
 }
@@ -171,7 +185,6 @@ body {
     padding-bottom: 23px;
     padding-top: 5px;
     margin-top: 15px;
-
 }
 
 .type-padding {
@@ -237,7 +250,6 @@ textarea::placeholder {
 input::-ms-input-placeholder {
     color: #9e9e8b !important;
 }
-
 
 textarea {
     background: none !important;
@@ -360,28 +372,24 @@ td {
     margin-top: 50px;
     background-color: #8b261d;
     height: 125px;
-
 }
 
 .footer-text {
     font-family: 'Georama', sans-serif;
     color: ivory;
     font-size: large;
-
 }
 
 .footer-text1 {
     font-family: 'Georama', sans-serif;
     color: ivory;
     font-size: small;
-
 }
 
 .footer-text2 {
     font-family: 'Georama', sans-serif;
     color: ivory;
     font-size: small;
-
 }
 
 .footer-left {
@@ -392,7 +400,6 @@ td {
 .footer-right {
     padding-left: 5%;
     padding-right: 10%;
-
 }
 
 a {
@@ -406,7 +413,7 @@ a {
     color: #35bdbd;
     position: absolute;
     left: 423px;
-    top: 480px;
+    top: 540px;
     background-color: rgb(33 46 78);
     border-radius: 10px;
     border-color: #f2f2d657;
@@ -417,28 +424,46 @@ a {
 @media (max-width: 1200px) {
     #productivityRating {
     left: 345px;
-    top: 490px;
+    top: 567px;
     }
 }
 
 @media (max-width: 992px) {
     #productivityRating {
         left: 307px;
-        top: 500px;
+        top: 568px;
     }
 }
 
 @media (max-width: 768px) {
     #productivityRating {
         left: 295px;
-        top: 500px;
+        top: 568px;
     }
 }
 
 @media (max-width: 576px) {
     #productivityRating {
         left: 67%;
-        top: 500px;
+        top: 568px;
+        position: absolute;
+        font-size:x-small;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 480px) {
+    #productivityRating {
+        left: 69%;
+        top: 535px;
+        position: absolute;
+        font-size:x-small;
+    }
+}
+
+@media (min-width: 378px) and (max-width: 401px) {
+    #productivityRating {
+        left: 69%;
+        top: 550px;
         position: absolute;
         font-size:x-small;
     }
@@ -473,8 +498,7 @@ a {
     }
 }
 
-
-.filler {
+.filler-graphic {
     display: block;
     height: 35px;
     position: absolute;
@@ -483,21 +507,21 @@ a {
 }
 
 @media (max-width: 1200px) {
-    .filler {
+    .filler-graphic {
         top: -29px;
         left: 198px;
     }
 }
 
 @media (max-width: 992px) {
-    .filler {
+    .filler-graphic {
         top: -29px;
         left: 98px;
     }
 }
 
 @media (max-width: 768px) {
-    .filler {
+    .filler-graphic {
         top: -29px;
         left: 19px;
     }
@@ -521,12 +545,14 @@ a {
     }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 480px) {
     .form-div{
         padding-left: 10px;
         padding-right: 4px;
+    }
 }
-}
+
+/*  ********************** MODAL ********************** */
 
 .modal-size {
     position: absolute;
