@@ -5,7 +5,7 @@ URL to the current deployed website:  [The Training Company](https://d-lawson.gi
 
 # The Training Company - Job sheet app
 
-This application is intended to capture field data for a national training company.   The application will serve as a means of capturing and submitting employee shift data at the end of their shift.   As employees will be completing these forms regularly, it needs to be intuitive and user friendly.  As there are a few different variables associated with different shifts, the form will need to behave dynamically and respond to user input in an interactive way to make the experience as seamless as possible. 
+This application is intended to capture field data for a national training company.   The application will serve as a means of capturing and submitting employee shift data at the end of their shift.   As employees will be completing these forms regularly, it needs to be intuitive and user friendly.  As there are a few different variables associated with different shifts, the form will need to behave dynamically and respond to user input in an interactive way to make the experience as seamless as possible, avoiding exposure to unrequired fields. 
 
 The goal is to provide the employee managers with accurate and timely data at the end of each shift.  This will not only supply the company with useful HR information, but also information relating to the activities delivered by the company on a daily basis.
 
@@ -18,7 +18,7 @@ The audience are employees of the company, in particular trainers, tutors, asses
 
 ## The site owner
 
-The owner seeks to obtain accurate and timely data relating to the activities of employees on a daily basis.  This data will be used to manage and monitor staff activity, HR purposes and also monitor the activities devlivered by the company.  
+The owner seeks to obtain accurate and timely data relating to the activities of employees on a daily basis.  This data will be used to manage and monitor staff activity, HR purposes and also monitor the activities delivered by the company.  
 
 ## Typical user stories to expect:
 
@@ -38,7 +38,7 @@ This application needs to make the process of submitting data as easy and effici
 Website user objectives:
 
 * Document and submit HR data relating to shift (hours on job and miles travelled)
-* Document and submit details of work activities, details of learners seen and the nature of activties delivered 
+* Document and submit details of work activities, details of learners seen and the nature of activities delivered 
 * Document and submit details of health and safety requirements
 * Document and submit any additional details relevant to the job undertaken
 
@@ -48,7 +48,7 @@ Website owner objectives:
 * Receive accurate and timely information relating to employee work activity and company activities
 * Collect mileage information for expenses claims
 * Improve effectiveness of systems for capturing and recording information
-* Improve employee productivity
+* Improve employee productivity by encouraging efficient planning.
 
 
 ## The Scope Plane
@@ -105,7 +105,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
 ## Existing Features
 
-*	Basic nav bar displaying the company  name and nature of the application
+*	Basic nav bar displaying the company name and nature of the application
 *	Form container placed prominently in the centre of the page for immediate access to the form.  A graphical element is placed on the left hand side of the container.
 *   Form contains a radio button for reporting the date with options Today or Yesterday.  The application then utilises a JQuery event listener to render the calculated date into a span element within the form.
 *   The form contains a range of input fields to obtain all the information specified (text, number, radio, date).  Also utilises Select and Textarea inputs.  
@@ -114,7 +114,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 *   The 'Select job type' select element obtains a list of job types which is rendered into the element using JavaScript.  The chosen option then calls on the appropriate function to render the associated HTML into the container below.
 *   The 'Health and safety vetted?' radio button Yes selection calls upon a function to render the associated HTML into the container below.
 *   A textarea input field is displayed to allow the user to provide any additional information of use.
-*   The form is validated using the native HTML5 validation which supplies sufficient feedback to the user to provide suffient and valid data.  The Postcode field contains a pattern to validate a UK postcode with required attributes placed where needed.
+*   The form is validated using the native HTML5 validation which supplies sufficient feedback to the user to provide sufficient and valid data.  The Postcode field contains a pattern to validate a UK postcode with required attributes placed where needed.
 *   Upon successful validation the Submit button calls upon the relevant function to compile the form data and associate them with properties for the EmailJS API template.  The form is then submitted to the API and the data is sent to the assigned email address.  The submit function also initiates the modal popup to confirm successful submission, which then resets the form.
 *   Basic footer is provided for application information and contact details.
 *   The application contains adequate accessibility features for its purpose.
@@ -122,8 +122,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 ## Features Left to Implement
 
 *   Information (i) icon to be placed next to 'report date' label with hover popover which instructs the user the reason why reports can only be created for Today and Yesterday (to encourage timeliness of reports), and to contact the administrator if the window has been missed.  (i) to be placed next to postcode label to instruct of the expected postcode format.
-
-*   Generate JSON file containing form data upon submit.
+*   Generate JSON file containing form data upon submit, as part of planned developments to have all data centralised within a database.
 *   Order form labels and inputs vertically in mobile view to enhance the mobile experience.
 
 ----
@@ -152,7 +151,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
 1.  As a tutor I want to be able to quickly send my manager the details of today's one-to-one tutoring sessions I delivered with learners, along with shift hours and miles travelled for my mileage claim.
 
-    *	The form allows easy and intuitive input of hours and also miles travelled.  The form has an unique section for one-to-one sessions in order for the tutor to select the type and supply details without getting distracted by unnecessary elements.  The orm also provides the opportunity to provide additional information.  Name fields are generated in order to add the names of all learners.
+    *	The form allows easy and intuitive input of hours and also miles travelled.  The form has an unique section for one-to-one sessions in order for the tutor to select the type and supply details without getting distracted by unnecessary elements.  The form also provides the opportunity to provide additional information.  Name fields are generated in order to add the names of all learners.
 
 1.  As a trainer I want to be able to quickly send my manager details of the presentation I delivered to students today, along with shift hours and miles travelled for my mileage claim.
 
@@ -172,13 +171,15 @@ Here are each of the steps that I took to test the application:
 
 ### Website Tested on different browsers at different screen widths for responsiveness – Chrome, Chrome for Android, Samsung Internet, Edge, Firefox
 
-Firstly I tested the application on the desktop browsers chrome, edge and firefox. I tested the responsiveenss on each of these browsers by adjusting the width and zoom of the windows, again with a consistent positive result.   Secondly I used chrome devtoools to adjust the width and zoom manually using the tool, again to see a positive response at desktop and mobile widths.  I then tested the forms on chrome for Android and Samsung Internet on my phone, with nothing unexpected occurring.  Overall I am satisfied that the form functions as expected on these various browsers and devices.
+Firstly I tested the application on the desktop browsers chrome, edge and firefox. I tested the responsiveness on each of these browsers by adjusting the width and zoom of the windows, again with a consistent positive result.   Secondly I used chrome devtoools to adjust the width and zoom manually using the tool, again to see a positive response at desktop and mobile widths.  I then tested the forms on chrome for Android and Samsung Internet on my phone, with nothing unexpected occurring.  Overall I am satisfied that the form functions as expected on these various browsers and devices.
 
 ### Testing form interactivity and overall functionality
 
-I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same sucessful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
+I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same successful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
 
 <img src="assets/readme-images/email-report.png"  width="400"/>
+
+In addition to this I checked that the productivity score was visible when required.  I also checked that the renedered inner HTML was fit for purpose by verifying that it had rendered correctly, I did this by checking the code in chrome devtools.
 
 ### Test with Chrome Devtools Lighthouse
 
@@ -236,13 +237,13 @@ GitHub offers anyone the opportunity to clone a repository.  This can be done by
 
 <img src="assets/readme-images/cloning-repository.png"  width="400"/>
 
-The first option is to clone by HTTPS.  It's possible to click the copy button next to it to copy the URL to your clipboard.  Frome your desired workspace you will need to open a terminal and load a suitable directory to store the repository.  From there you can use the command 'git clone' along with the URL to sucessfully clone the repository.   
+The first option is to clone by HTTPS.  It's possible to click the copy button next to it to copy the URL to your clipboard.  Frome your desired workspace you will need to open a terminal and load a suitable directory to store the repository.  From there you can use the command 'git clone' along with the URL to successfully clone the repository.   
 
 It is also possible to clone to GitHub desktop from the 'Code' menu.  If you have the Git Hub Desktop application installed on your desktop you can expect to be guided through the process of deploying it locally onto your instance of Git Hub desktop.
 
 Alternatively, from the 'code' menu it is possible to download all the files in a .zip folder where you will be able to transfer the files to any workspace or hosting platform of your choosing.   
 
-In order to sucessfully get the website up and running it will be necessary to obtain your own Email JS API key and replace the existing API key that is stored within the HTML head under EmailJS.  It will allso be necessary to obtain your own service code and also template code and insert them into the sendMail function in the script.js file (replacing the existing values).
+In order to successfully get the website up and running it will be necessary to obtain your own Email JS API key and replace the existing API key that is stored within the HTML head under EmailJS.  It will also be necessary to obtain your own service code and also template code and insert them into the sendMail function in the script.js file (replacing the existing values).
 
 
 ----
