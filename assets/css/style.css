@@ -113,6 +113,11 @@ body {
     }
 }
 
+.red-req{
+    color: red;
+    padding-left: 2px;
+}
+
 .form-labels1 {
     font-family: 'Georama', sans-serif;
     color: #f2f2d6;

@@ -44,8 +44,8 @@ function addFields1() {
         var cell2 = row.insertCell(1);
 
         // Inner HTML for learner name
-        cell1.innerHTML = `<label class="form-labels remove reduce-size" for="learner-name-${[i+1]}">Learner name ${[i+1]}:</label>`;
-        cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name[]"
+        cell1.innerHTML = `<label class="form-labels remove reduce-size" for="learner-name-${[i+1]}">Learner name ${[i+1]}:<span class="red-req">*</span></label>`;
+        cell2.innerHTML = `<input type="text" class="form-control text-width2 learnerNames remove" id="learner-name-${[i+1]}" name="learner_name_${[i+1]}"
         placeholder="Enter name" required>`;
     }
 }
