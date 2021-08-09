@@ -172,17 +172,17 @@ Here are each of the steps that I took to test the application:
 
 ### Website Tested on different browsers at different screen widths for responsiveness – Chrome, Chrome for Android, Samsung Internet, Edge, Firefox
 
-    Firstly I tested the application on the desktop browsers chrome, edge and firefox. I tested the responsiveenss on each of these browsers by adjusting the width and zoom of the windows, again with a consistent positive result.   Secondly I used chrome devtoools to adjust the width and zoom manually using the tool, again to see a positive response at desktop and mobile widths.  I then tested the forms on chrome for Android and Samsung Internet on my phone, with nothing unexpected occurring.  Overall I am satisfied that the form functions as expected on these various browsers and devices.
+Firstly I tested the application on the desktop browsers chrome, edge and firefox. I tested the responsiveenss on each of these browsers by adjusting the width and zoom of the windows, again with a consistent positive result.   Secondly I used chrome devtoools to adjust the width and zoom manually using the tool, again to see a positive response at desktop and mobile widths.  I then tested the forms on chrome for Android and Samsung Internet on my phone, with nothing unexpected occurring.  Overall I am satisfied that the form functions as expected on these various browsers and devices.
 
 ### Testing form interactivity and overall functionality
 
-    I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same sucessful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
+I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same sucessful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
 
 <img src="assets/readme-images/email-report.png"  width="400"/>
 
 ### Test with Chrome Devtools Lighthouse
 
-    The lighthouse report turned out favourably for both desktop and mobile devices.  I did not make use of the SEO tool for this application since it's an in-house product for an organisation.   The only notable warnings that came up for performance were associated with external library dependency (boostrap and jquery).
+The lighthouse report turned out favourably for both desktop and mobile devices.  I did not make use of the SEO tool for this application since it's an in-house product for an organisation.   The only notable warnings that came up for performance were associated with external library dependency (boostrap and jquery).
 
 - Desktop
 
@@ -192,31 +192,31 @@ Here are each of the steps that I took to test the application:
 
 <img src="assets/readme-images/lighthouse-mobile.png"  width="400" height="180"/>
 
-    There was an issue in relation to accessibility that lightroom pointed out that I am yet to fix.  One of the labels for the H&S radio button is not 'correctly announced' and I believe this to be associated with the ID, of which when I changed to match the other button ID the tool would throw out an ARIA related issue then because the two ID's were the same.  I'll put this down as a known bug but I'm satisfied with the overall accessibility score.  
+There was an issue in relation to accessibility that lightroom pointed out that I am yet to fix.  One of the labels for the H&S radio button is not 'correctly announced' and I believe this to be associated with the ID, of which when I changed to match the other button ID the tool would throw out an ARIA related issue then because the two ID's were the same.  I'll put this down as a known bug but I'm satisfied with the overall accessibility score.  
 
 
 ###	W3 HTML Validation tool
 
-    The site passed this validation tool without any errors.   The only caution present was associated with the comments which stated 'The document is not mappable to XML 1.0 due to two consecutive hyphens in a comment'.  I therefore corrected the hyphens in my commenting and the tool passed with no errors or warnings.
+The site passed this validation tool without any errors.   The only caution present was associated with the comments which stated 'The document is not mappable to XML 1.0 due to two consecutive hyphens in a comment'.  I therefore corrected the hyphens in my commenting and the tool passed with no errors or warnings.
 
 <img src="assets/readme-images/html-val.png"  width="400" height="180"/>
 
 ###	W3 CSS Validation tool
 
-    This tool came out with 2 errors resulting from the bootstrap library and of which there were no dependencies on those classes.  The tool also showed warnings from the bootstrap library.  No errors or warnings were reported from my CSS.
+This tool came out with 2 errors resulting from the bootstrap library and of which there were no dependencies on those classes.  The tool also showed warnings from the bootstrap library.  No errors or warnings were reported from my CSS.
 
 ### The A11Y Color Contrast Accessibility Validator
 
-    This tool picked up one issue to do with the contrast of the radio button element (between blue and black).  This was not consistent with my observation on the page itself as the radio buttons and text were in fact light.  
+This tool picked up one issue to do with the contrast of the radio button element (between blue and black).  This was not consistent with my observation on the page itself as the radio buttons and text were in fact light.  
 
 ### JSHint JavaScript quality checker
 
-    This tool did not show up any errors.  It highlighted some warnings that appear to be related to the use of const and also template literals.  After a bit of research these do not appear to be significant in the context of this application. 
+This tool did not show up any errors.  It highlighted some warnings that appear to be related to the use of const and also template literals.  After a bit of research these do not appear to be significant in the context of this application. 
 
 
 ## Other testing considerations/Known bugs
 
-*	As identified during the lightroom accessibility check there appears to be an issue with the ID's of the radio buttons when it comes to accessibility features.  In this instance it has no affect on the functionality of the application however this may need to be looked at further if using a standard POST method in future as opposed to relying on EmailJS.  
+As identified during the lightroom accessibility check there appears to be an issue with the ID's of the radio buttons when it comes to accessibility features.  In this instance it has no affect on the functionality of the application however this may need to be looked at further if using a standard POST method in future as opposed to relying on EmailJS.  
 
 ----
 
@@ -273,5 +273,5 @@ Favicon website was used to generate the browser icon.
 * My mentor Guido Cecilio for providing me with feedback and making me aware of conventions and best practice. Also for supporting me with rendering the list options from script into the HTML select input.  Guido also assisted me in correcting behaviour of the footer positioning which was behaving unexpectedly as a result of the position setting of other elements.   
 * General Bootstrap documentation for classes and their behaviour
 * General JQuery documentation on its features and functions
-* StackOverflow discussions were useful in how to approach the addFields function to insert and remove table cells.
+* StackOverflow discussions were useful in how to approach the addFields function to insert and remove table cells.  Also used for ideas with displaying the date.
 * EmailJS documentation in order to understand how to implement the API.
