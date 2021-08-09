@@ -56,18 +56,16 @@ function sendMail(contactForm) {
 
     collectNames();
 
-    // Assign empty strings to unrendered elements to suit EmailJS API
-
     var typeValue = document.getElementById("typeField").value;
     var hsValue = document.getElementById("hsField_1").checked;
-    var presentationSubjectMail = {};
-    var presentationResourceMail = {};
-    var examSubjectMail = {};
-    var examResourceMail = {};
-    var oneSubjectMail = {};
-    var assessmentTypeMail = {};
-    var vettingMail = {};
-    var eliMail = {};
+    var presentationSubjectMail = "";
+    var presentationResourceMail = "";
+    var examSubjectMail = "";
+    var examResourceMail = "";
+    var oneSubjectMail = "";
+    var assessmentTypeMail = "";
+    var vettingMail = "";
+    var eliMail = "";
 
     if (typeValue === TRAINING_PRESENTATION) {
         presentationSubjectMail = contactForm.presentationSubject.value;
@@ -117,8 +115,6 @@ function sendMail(contactForm) {
         eliMail = "";
     }
 
-    // Assign values to EmailJS properties and send
-
     emailjs.send("service_jrlcm3l", "template_pfvzimj", {
             "report_date": document.getElementById("dateValue").innerHTML,
             "employee_name": contactForm.nameField.value,
@@ -151,8 +147,8 @@ function sendMail(contactForm) {
             });
 
     $('#modalSubmit').modal('show');
-
     return false;
+    
 }
 
 function modalRefresh() {

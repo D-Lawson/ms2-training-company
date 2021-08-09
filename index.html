@@ -8,13 +8,11 @@
     <meta name="author" content="Dan Lawson">
     <meta name="theme-color" content="#8b261d" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- EMAILJS API SETUP -->
     <script>
         (function () {
             emailjs.init("user_5ywkyvjIawxGTS63jjHDE");
@@ -24,7 +22,7 @@
 </head>
 
 <body>
-    <!----------------------NAVBAR SECTION---------------------->
+    <!-- NAVBAR SECTION -->
     <header>
         <nav class="navbar fixed-top nav-style justify-content-center">
             <div>
@@ -33,14 +31,14 @@
         </nav>
     </header>
 
-    <!----------------------END OF NAVBAR SECTION---------------------->
+    <!-- END OF NAVBAR SECTION -->
 
-    <!----------------------FORM SECTION---------------------->
+    <!-- FORM SECTION -->
 
     <section class="container align-items-center">
         <div class="row">
             <div class="col-12 form-div" role="form" aria-label="PLEASE COMPLETE EACH SECTION FULLY AND ACCURATELY">
-                <form id="user-form" class="form-styling" onsubmit="return sendMail(this);">
+                <form id="user-form" class="form-styling" onsubmit="return sendMail(this)">
                     <div class="text-center">
                         <h2 class="form-labels3">JOB SHEET FOR REPORTING DAILY WORK ACTIVITIES</h2>
                     </div>
@@ -55,10 +53,10 @@
                             </td>
                             <td>
                                 <input type="radio" id="date_field" name="date_field"
-                                    class="form-radio set-today date-format1" checked><span
+                                    class="form-radio set-today date-format1" aria-label="Today" checked><span
                                     class="date-format1 reduce-size">Today</span>
                                 <input type="radio" id="date_field1" name="date_field"
-                                    class="form-radio set-yesterday date-format1"><span
+                                    class="form-radio set-yesterday date-format1" aria-label="Yesterday"><span
                                     class="date-format1 reduce-size">Yesterday</span>
                                 <br><span id="dateValue" class="date-format reduce-size"></span>
                             </td>
@@ -97,9 +95,8 @@
                                         class="red-req">*</span></label>
                             </td>
                             <td>
-                                <input type="text" onchange="postcode()" class="form-control text-width"
-                                    id="postcodeField" name="postcodeField" placeholder="Enter location postcode"
-                                    required
+                                <input type="text" class="form-control text-width" id="postcodeField"
+                                    name="postcodeField" placeholder="Enter location postcode" required
                                     pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}">
                             </td>
                         </tr>
@@ -137,9 +134,9 @@
                             <label class="form-labels1 extra-margin reduce-size" for="hsField">Health and safety
                                 vetted?</label>
                             <input type="radio" class="form-radio" onchange="clearHS()" id="hsField" name="hsField"
-                                checked><span class="date-format1 reduce-size">No</span>
+                                checked aria-label="No"><span class="date-format1 reduce-size">No</span>
                             <input type="radio" class="form-radio" onchange="healthSafety()" id="hsField_1"
-                                name="hsField"><span class="date-format1 reduce-size">Yes</span><br>
+                                name="hsField" aria-label="Yes"><span class="date-format1 reduce-size">Yes</span><br>
                             <div id="container2" class="form-group health-safety-div">
                             </div>
                         </div>
@@ -162,27 +159,27 @@
         </div>
     </section>
 
-    <!----------------------END OF FORM SECTION---------------------->
+    <!-- END OF FORM SECTION -->
 
-    <!----------------------FOOTER SECTION---------------------->
+   <!-- FOOTER SECTION -->
 
     <footer class="page-footer d-flex justify-content-center">
         <div id="footer-style" class="row">
             <div class="col-6 container-fluid footer-left">
-                <h2 class="footer-text reduce-size">The Training Company</h5>
+                <h2 class="footer-text reduce-size">The Training Company</h2>
                     <p class="footer-text1 footer-reduce">Official field data submission form</p>
             </div>
             <div class="col-6 container-fluid text-right footer-right">
-                <h2 class="footer-text reduce-size">Any problems, please report to:</h5>
+                <h2 class="footer-text reduce-size">Any problems, please report to:</h2>
                     <p class="footer-text2 footer-reduce"><a
                             href="mailto:tech.support@TTC.com.org">tech.support@TTC.com.org</a></p>
             </div>
         </div>
     </footer>
 
-    <!----------------------END OF FOOTER SECTION---------------------->
+    <!-- END OF FOOTER SECTION -->
 
-    <!----------------------FORM SUBMIT MODAL---------------------->
+   <!-- FORM SUBMIT MODAL -->
 
     <div id="modalSubmit" class="modal" tabindex="-1">
         <div class="modal-content modal-style modal-size">
@@ -197,10 +194,12 @@
         </div>
     </div>
 
-    <!----------------------END OF FORM SUBMIT MODAL---------------------->
+    <!-- END OF FORM SUBMIT MODAL -->
 
     <script src="assets/js/jquery-3.6.0.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
     <script src="assets/js/script.js"></script>
 
 </body>

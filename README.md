@@ -1,6 +1,7 @@
-![The Training Company](/assets/readme-images/.PNG)
+<img src="assets/readme-images/demonstration.png"  width="700"/>
 
-URL to the current deployed website:  [The Training Company](URL)
+
+URL to the current deployed website:  [The Training Company](https://d-lawson.github.io/ms2-training-company/)
 
 # The Training Company - Job sheet app
 
@@ -109,7 +110,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 *   Form contains a radio button for reporting the date with options Today or Yesterday.  The application then utilises a JQuery event listener to render the calculated date into a span element within the form.
 *   The form contains a range of input fields to obtain all the information specified (text, number, radio, date).  Also utilises Select and Textarea inputs.  
 *   Upon entering Hours, Miles and Number of learners the application utilises JavaScript to calculate a productivity score using a specific formula.  This is then converted to a rating of Low, Medium or High which is then rendered into the form as feedback.
-*   Upon selecting the Number of Learners, the application renders the associated amount of input fields to enter learner names.  Each name is assigned an unique Name and ID.
+*   Upon selecting the Number of Learners, the application renders the associated amount of input fields to enter learner names.  Each name is assigned an unique Name and ID.  These names are then captured and placed into an array.
 *   The 'Select job type' select element obtains a list of job types which is rendered into the element using JavaScript.  The chosen option then calls on the appropriate function to render the associated HTML into the container below.
 *   The 'Health and safety vetted?' radio button Yes selection calls upon a function to render the associated HTML into the container below.
 *   A textarea input field is displayed to allow the user to provide any additional information of use.
@@ -141,6 +142,7 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 *   TinyPNG was used to compress images.
 *   The W3C validation tools were used to validate HTML and CSS
 *   The JSHint tool was used to check for quality issues within the JavaScript
+*   Favicon website was used to generate and embed the favicons.
 
 ----
 
@@ -148,13 +150,99 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
 ## Testing against user stories:
 
+1.  As a tutor I want to be able to quickly send my manager the details of today's one-to-one tutoring sessions I delivered with learners, along with shift hours and miles travelled for my mileage claim.
+
+    *	The form allows easy and intuitive input of hours and also miles travelled.  The form has an unique section for one-to-one sessions in order for the tutor to select the type and supply details without getting distracted by unnecessary elements.  The orm also provides the opportunity to provide additional information.  Name fields are generated in order to add the names of all learners.
+
+1.  As a trainer I want to be able to quickly send my manager details of the presentation I delivered to students today, along with shift hours and miles travelled for my mileage claim.
+
+    *	The form allows easy and intuitive input of hours and also miles travelled.  Details of the nature of the presentation can be entered upon selecting job type and additional information can be supplied if required.
+
+1.  As an assessor I want to be able to quickly send details of learners assessed on a site visit today and for which qualifications, along with shift hours and miles travelled for my mileage claim.  Fields are generated for the assessor to supply the names of all those who were assessed.
+
+    *	The subject details can be supplied when selecting the job type and providing details of the subject qualification.   Being able to provide details of hours and miles is necessary for all users.  Additional information can be supplied in the additional details section.
+
+1.  As an employee of the company I want to report today's activities and also supply information relating to a health and safety vetting carried out on site.
+
+    *	There is a designated section for providing the vetting reference number and the date which the ELI is due for renewal.   
+
 ## Manual testing procedures
 
+Here are each of the steps that I took to test the application:
+
+### Website Tested on different browsers at different screen widths for responsiveness – Chrome, Chrome for Android, Samsung Internet, Edge, Firefox
+
+    Firstly I tested the application on the desktop browsers chrome, edge and firefox. I tested the responsiveenss on each of these browsers by adjusting the width and zoom of the windows, again with a consistent positive result.   Secondly I used chrome devtoools to adjust the width and zoom manually using the tool, again to see a positive response at desktop and mobile widths.  I then tested the forms on chrome for Android and Samsung Internet on my phone, with nothing unexpected occurring.  Overall I am satisfied that the form functions as expected on these various browsers and devices.
+
+### Testing form interactivity and overall functionality
+
+    I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same sucessful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
+
+<img src="assets/readme-images/email-report.png"  width="400"/>
+
+### Test with Chrome Devtools Lighthouse
+
+    The lighthouse report turned out favourably for both desktop and mobile devices.  I did not make use of the SEO tool for this application since it's an in-house product for an organisation.   The only notable warnings that came up for performance were associated with external library dependency (boostrap and jquery).
+
+- Desktop
+
+<img src="assets/readme-images/lighthouse-desktop.png"  width="400"/>
+
+- Mobile
+
+<img src="assets/readme-images/lighthouse-mobile.png"  width="400" height="180"/>
+
+    There was an issue in relation to accessibility that lightroom pointed out that I am yet to fix.  One of the labels for the H&S radio button is not 'correctly announced' and I believe this to be associated with the ID, of which when I changed to match the other button ID the tool would throw out an ARIA related issue then because the two ID's were the same.  I'll put this down as a known bug but I'm satisfied with the overall accessibility score.  
+
+
+###	W3 HTML Validation tool
+
+    The site passed this validation tool without any errors.   The only caution present was associated with the comments which stated 'The document is not mappable to XML 1.0 due to two consecutive hyphens in a comment'.  I therefore corrected the hyphens in my commenting and the tool passed with no errors or warnings.
+
+<img src="assets/readme-images/html-val.png"  width="400" height="180"/>
+
+###	W3 CSS Validation tool
+
+    This tool came out with 2 errors resulting from the bootstrap library and of which there were no dependencies on those classes.  The tool also showed warnings from the bootstrap library.  No errors or warnings were reported from my CSS.
+
+### The A11Y Color Contrast Accessibility Validator
+
+    This tool picked up one issue to do with the contrast of the radio button element (between blue and black).  This was not consistent with my observation on the page itself as the radio buttons and text were in fact light.  
+
+### JSHint JavaScript quality checker
+
+    This tool did not show up any errors.  It highlighted some warnings that appear to be related to the use of const and also template literals.  After a bit of research these do not appear to be significant in the context of this application. 
+
+
 ## Other testing considerations/Known bugs
+
+*	As identified during the lightroom accessibility check there appears to be an issue with the ID's of the radio buttons when it comes to accessibility features.  In this instance it has no affect on the functionality of the application however this may need to be looked at further if using a standard POST method in future as opposed to relying on EmailJS.  
 
 ----
 
 # Deployment
+
+I decided to deploy this application on GitHub pages.  Here were the steps taken to publish it:
+
+Access the settings tab on GitHub, click on the Pages section.  Select main branch for the ms2-training-company repository.  Click on save. This was all that was required in order to publish the page to [The Training Company](https://d-lawson.github.io/ms2-training-company/)
+
+<img src="assets/readme-images/select-main-branch.png"  width="400"/>
+
+## Deploying the repository locally
+
+In order to deploy the repository yourself and run new instances of it there is an additional process which I will explain below.
+
+GitHub offers anyone the opportunity to clone a repository.  This can be done by accessing the 'Code' button on the main repository page and viewing the options there.  
+
+<img src="assets/readme-images/cloning-repository.png"  width="400"/>
+
+The first option is to clone by HTTPS.  It's possible to click the copy button next to it to copy the URL to your clipboard.  Frome your desired workspace you will need to open a terminal and load a suitable directory to store the repository.  From there you can use the command 'git clone' along with the URL to sucessfully clone the repository.   
+
+It is also possible to clone to GitHub desktop from the 'Code' menu.  If you have the Git Hub Desktop application installed on your desktop you can expect to be guided through the process of deploying it locally onto your instance of Git Hub desktop.
+
+Alternatively, from the 'code' menu it is possible to download all the files in a .zip folder where you will be able to transfer the files to any workspace or hosting platform of your choosing.   
+
+In order to sucessfully get the website up and running it will be necessary to obtain your own Email JS API key and replace the existing API key that is stored within the HTML head under EmailJS.  It will allso be necessary to obtain your own service code and also template code and insert them into the sendMail function in the script.js file (replacing the existing values).
 
 
 ----
@@ -163,6 +251,27 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
 ## Content
 
+Use of external content has been limited due to the nature of the project.
+
 ## Media
 
+Images acquired from:
+
+[Presentation graphic](https://pngtree.com/freepng/presentation-glyph-black-icon_4008228.html)
+
+[Spiral vector for the form](https://www.shutterstock.com/image-vector/spiral-notebook-722536987)
+
+[One-to-one graphic](https://www.pngarea.com/view/0f17f679_benefits-icon-png-benefit-counseling-pierce-benefits-transparent/)
+
+[Paper and pencil graphic](https://pngtree.com/freepng/vector-documentation-icon_4013897.html)
+
+Favicon website was used to generate the browser icon.
+
 ## Acknowledgements 
+
+* Code Institute's LMS provided me with a great foundation to the way I have approached this project. I made use of teachings from UX to coding.
+* My mentor Guido Cecilio for providing me with feedback and making me aware of conventions and best practice. Also for supporting me with rendering the list options from script into the HTML select input.  Guido also assisted me in correcting behaviour of the footer positioning which was behaving unexpectedly as a result of the position setting of other elements.   
+* General Bootstrap documentation for classes and their behaviour
+* General JQuery documentation on its features and functions
+* StackOverflow discussions were useful in how to approach the addFields function to insert and remove table cells.
+* EmailJS documentation in order to understand how to implement the API.
