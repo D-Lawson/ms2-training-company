@@ -153,6 +153,8 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
     *	The form allows easy and intuitive input of hours and also miles travelled.  The form has an unique section for one-to-one sessions in order for the tutor to select the type and supply details without getting distracted by unnecessary elements.  The form also provides the opportunity to provide additional information.  Name fields are generated in order to add the names of all learners.
 
+    <img src="assets/images/interface-example.png"  width="500"/>
+
 1.  As a trainer I want to be able to quickly send my manager details of the presentation I delivered to students today, along with shift hours and miles travelled for my mileage claim.
 
     *	The form allows easy and intuitive input of hours and also miles travelled.  Details of the nature of the presentation can be entered upon selecting job type and additional information can be supplied if required.
@@ -163,7 +165,9 @@ Generic bootstrap buttons have been deemed suitable, providing that the styling 
 
 1.  As an employee of the company I want to report today's activities and also supply information relating to a health and safety vetting carried out on site.
 
-    *	There is a designated section for providing the vetting reference number and the date which the ELI is due for renewal.   
+    *	There is a designated section for providing the vetting reference number and the date which the ELI is due for renewal.  
+
+    <img src="assets/images/safety-info.png"  width="500"/> 
 
 ## Manual testing procedures
 
@@ -175,11 +179,11 @@ Firstly I tested the application on the desktop browsers chrome, edge and firefo
 
 ### Testing form interactivity and overall functionality
 
-I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same successful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
+In addition to testing agains the user stories I submitted fully completed forms to the EmailJS API using all the different combinations of input selections.  I was able to get the same successful result with each combination successfully submitting to the email API, regardless of the combinations selected.   The form validation works as intended as I did try to enter invalid data into the postcode field, also leave fields blank to test the required attribute.  All combinations of inputs are received by the associated email account as demonstrated below.
 
 <img src="assets/readme-images/email-report.png"  width="400"/>
 
-In addition to this I checked that the productivity score was visible when required.  I also checked that the renedered inner HTML was fit for purpose by verifying that it had rendered correctly, I did this by checking the code in chrome devtools.
+In addition to this I checked that the productivity score was visible when required.  I also checked that the renedered inner HTML was fit for purpose by verifying that it had rendered correctly, I did this by checking the code in chrome devtools.  Overall the functionality meets the specification in terms of what the application is expected to achieve.
 
 ### Test with Chrome Devtools Lighthouse
 
